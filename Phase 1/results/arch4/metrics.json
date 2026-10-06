@@ -1,0 +1,222 @@
+{
+  "architecture": "deep_decoder_mla_qknorm_gated_attention_engram",
+  "params": 139089664,
+  "engram_params": 42886272,
+  "model_config": {
+    "vocab_size": 16384,
+    "d_model": 640,
+    "n_layers": 16,
+    "n_heads": 10,
+    "kv_latent_dim": 320,
+    "rope_dim": 32,
+    "d_ff": 1712,
+    "max_seq_len": 1024,
+    "dropout": 0.0,
+    "engram_layers": [
+      2,
+      8
+    ],
+    "engram_orders": [
+      2,
+      3
+    ],
+    "engram_heads": 4,
+    "engram_head_dim": 32,
+    "engram_rows": 81920,
+    "engram_vocab": 16384
+  },
+  "components": {
+    "attention": "MLA (latent 320, decoupled RoPE 32)",
+    "qk_norm": true,
+    "output_gate": "elementwise sigmoid",
+    "engram": {
+      "enabled": true,
+      "layers": [
+        2,
+        8
+      ],
+      "orders": [
+        2,
+        3
+      ],
+      "heads": 4,
+      "head_dim": 32
+    }
+  },
+  "training_complete": true,
+  "updates": 11029,
+  "planned_total": 11029,
+  "final_start": 9927,
+  "horizon_info": {
+    "s_per_update": 3.6705977983474734
+  },
+  "skipped_updates": 3,
+  "updates_per_objective": {
+    "lm": 9927,
+    "task": 1102
+  },
+  "examples_per_objective": {
+    "lm": 317664,
+    "task": 35264
+  },
+  "loss_tokens": {
+    "lm": 325287936,
+    "task": 5264110
+  },
+  "active_train_hours": 11.059948897096845,
+  "eval_hours": 0.8418051762051052,
+  "sessions": [
+    {
+      "start_unix": 1791209292.6948693,
+      "start_update": 0,
+      "data_ready_after_sec": 1098.9055259227753,
+      "end_unix": 1791244194.1724906,
+      "end_update": 9190,
+      "session_elapsed_sec": 36000.3831474781
+    },
+    {
+      "start_unix": 1791259668.5156643,
+      "start_update": 9190,
+      "data_ready_after_sec": 222.81075596809387,
+      "end_unix": 1791266777.5301294,
+      "end_update": 11029,
+      "session_elapsed_sec": 7331.825221300125
+    }
+  ],
+  "evals": [
+    {
+      "tag": "u8000",
+      "update": 8000,
+      "bertscore_P": 0.8484652638435364,
+      "bertscore_R": 0.843355119228363,
+      "bertscore_F1": 0.8458137512207031,
+      "val_loss": 2.6664671111106872,
+      "val_ppl": 14.38904439487332,
+      "mean_words": 127.68,
+      "short_outputs": 2,
+      "token_cap_hits": 2,
+      "prompt_truncated": 7,
+      "repetition_4gram": 0.13191664531159,
+      "generation_errors": 0,
+      "n": 200,
+      "seconds": 1028.643187046051,
+      "per_source_F1": {
+        "acts": 0.8356924796104431,
+        "high_courts": 0.8717857611179352,
+        "supreme_court": 0.8375045597553253,
+        "tribunals": 0.8382724940776825
+      }
+    },
+    {
+      "tag": "prefinal",
+      "update": 9927,
+      "bertscore_P": 0.8521818518638611,
+      "bertscore_R": 0.8464959859848022,
+      "bertscore_F1": 0.8492563366889954,
+      "val_loss": 2.580081707239151,
+      "val_ppl": 13.198216505435807,
+      "mean_words": 127.735,
+      "short_outputs": 2,
+      "token_cap_hits": 2,
+      "prompt_truncated": 7,
+      "repetition_4gram": 0.138340835401158,
+      "generation_errors": 0,
+      "n": 200,
+      "seconds": 939.1234083175659,
+      "per_source_F1": {
+        "acts": 0.842210842370987,
+        "high_courts": 0.8777924406528473,
+        "supreme_court": 0.8357151472568511,
+        "tribunals": 0.8413069319725036
+      }
+    },
+    {
+      "tag": "final",
+      "update": 11029,
+      "bertscore_P": 0.857287585735321,
+      "bertscore_R": 0.8508741855621338,
+      "bertscore_F1": 0.8539924621582031,
+      "val_loss": 2.6105374586582184,
+      "val_ppl": 13.606361743929938,
+      "mean_words": 127.54,
+      "short_outputs": 3,
+      "token_cap_hits": 3,
+      "prompt_truncated": 7,
+      "repetition_4gram": 0.13157012616286481,
+      "generation_errors": 0,
+      "n": 200,
+      "seconds": 907.9605441093445,
+      "per_source_F1": {
+        "acts": 0.8438626170158386,
+        "high_courts": 0.8938705170154572,
+        "supreme_court": 0.8374512350559234,
+        "tribunals": 0.8407856452465058
+      }
+    }
+  ],
+  "eval_failures": [],
+  "best_phase1": {
+    "tag": "final",
+    "update": 11029,
+    "bertscore_F1": 0.8539924621582031
+  },
+  "val_history": [
+    {
+      "update": 1000,
+      "val_loss": 3.796947512626648
+    },
+    {
+      "update": 2000,
+      "val_loss": 3.1451227188110353
+    },
+    {
+      "update": 3000,
+      "val_loss": 2.9562950217723847
+    },
+    {
+      "update": 4000,
+      "val_loss": 2.858587803840637
+    },
+    {
+      "update": 5000,
+      "val_loss": 2.7900467038154604
+    },
+    {
+      "update": 6000,
+      "val_loss": 2.7409656071662902
+    },
+    {
+      "update": 7000,
+      "val_loss": 2.699496136903763
+    },
+    {
+      "update": 8000,
+      "val_loss": 2.6664671111106872
+    },
+    {
+      "update": 9000,
+      "val_loss": 2.644556485414505
+    },
+    {
+      "update": 10000,
+      "val_loss": 2.6781480109691618
+    },
+    {
+      "update": 11000,
+      "val_loss": 2.612311544418335
+    }
+  ],
+  "final_val_loss": 2.569410884057625,
+  "generation_config": {
+    "temperature": 0.4,
+    "top_p": 0.92,
+    "top_k": 50,
+    "repetition_penalty": 1.15
+  },
+  "test_generation_report": {
+    "short_outputs": 1,
+    "token_cap_hits": 1,
+    "prompt_truncated": 25
+  },
+  "test_generation_errors": []
+}

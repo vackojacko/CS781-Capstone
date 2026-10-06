@@ -1,0 +1,34 @@
+# Weights, data caches and archives (too large, or rebuilt by the notebooks)
+*.pt
+*.bin
+*.safetensors
+*.npy
+*.npz
+*.zip
+*.pkl
+**/bpe_checkpoints/
+**/tokenizer training results/
+
+# Raw Kaggle outputs: keep only the per-run summaries
+/Phase 1/results/**
+!/Phase 1/results/**/
+!/Phase 1/results/**/metrics.json
+!/Phase 1/results/**/loss_curves.png
+
+# Excerpts of the gated course dataset
+**/heldout_eval_set.json
+**/*_eval_set.json
+
+# Local notes, course material and scratch files (not part of the repo)
+/Phase 1/appendix.md
+/Phase 1/PHASE1_PIPELINE.md
+/Phase 1/_archive/
+/Phase 1/_cleanup_log.txt
+/Phase 1/notebooks/CS781_Phase1_Starter_Code.ipynb
+/Phase 1/notebooks/Capstone_Regen_BERTScore.ipynb
+
+# Python / OS / editor noise
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="CS781 Capstone: legal language models trained from scratch">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#3b0764"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.85" cy="0.2" r="0.45">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.1" cy="0.95" r="0.5">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="300" rx="18" fill="url(#glow1)"/>
+  <rect width="1200" height="300" rx="18" fill="url(#glow2)"/>
+  <!-- token stream -->
+  <g opacity="0.55" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#c4b5fd">
+    <text x="760" y="70">▁the ▁appellant ▁contends ▁that</text>
+    <text x="800" y="100">▁Section ▁482 ▁Cr.P.C. ▁empowers</text>
+    <text x="740" y="130">▁the ▁High ▁Court ▁to ▁quash</text>
+  </g>
+  <!-- attention arcs -->
+  <g fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.8">
+    <path d="M760 170 Q 860 120 960 170"/>
+    <path d="M800 170 Q 920 90 1040 170"/>
+    <path d="M880 170 Q 980 130 1080 170"/>
+    <path d="M760 170 Q 920 60 1120 170"/>
+  </g>
+  <g fill="#e9d5ff">
+    <circle cx="760" cy="170" r="5"/><circle cx="800" cy="170" r="5"/><circle cx="880" cy="170" r="5"/>
+    <circle cx="960" cy="170" r="5"/><circle cx="1040" cy="170" r="5"/><circle cx="1080" cy="170" r="5"/><circle cx="1120" cy="170" r="5"/>
+  </g>
+  <!-- titles -->
+  <text x="60" y="118" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="58" font-weight="800" fill="#f8fafc">CS781 Capstone</text>
+  <rect x="62" y="138" width="300" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="60" y="185" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="25" font-weight="500" fill="#cbd5e1">Legal language models, trained from scratch</text>
+  <text x="60" y="222" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#94a3b8">Own BPE tokenizer · four architectures · Indian legal corpus</text>
+  <g font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="700">
+    <rect x="60" y="244" width="168" height="30" rx="15" fill="#22d3ee" fill-opacity="0.18" stroke="#22d3ee" stroke-opacity="0.6"/>
+    <text x="144" y="264" text-anchor="middle" fill="#a5f3fc">BERTScore 0.8681</text>
+    <rect x="240" y="244" width="150" height="30" rx="15" fill="#a78bfa" fill-opacity="0.18" stroke="#a78bfa" stroke-opacity="0.6"/>
+    <text x="315" y="264" text-anchor="middle" fill="#ddd6fe">Phase 1 done</text>
+  </g>
+</svg>

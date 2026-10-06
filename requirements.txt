@@ -1,0 +1,8 @@
+# Kaggle T4 environment (Python 3.13, CUDA). Versions used in the runs:
+torch>=2.11
+numpy
+ijson               # streaming the training JSON files
+huggingface_hub     # downloading the course dataset (needs an HF token with access)
+bert_score          # local BERTScore evaluation (roberta-large), evaluation only
+pyahocorasick       # training-corpus overlap search (Overlap_Check notebook)
+matplotlib
