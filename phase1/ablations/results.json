@@ -1,0 +1,1900 @@
+{
+ "A0_full": {
+  "tag": "A0_full",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": true,
+   "latent": true,
+   "tag": "A0_full",
+   "change": "baseline: MLA + decoupled RoPE, QK-norm, sigmoid gate, Engram at layers 1 and 4",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 32769408,
+  "engram_params": 11034624,
+  "backbone_params": 21734784,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.7435076284433033,
+  "final_val_ppl": 15.54140306898512,
+  "val_tokens": 997888,
+  "tokens_per_sec": 30587.348852714647,
+  "train_minutes": 26.14846649567286,
+  "wall_minutes": 28.221457223097485,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.281478437538206,
+    "minutes": 2.7997589230537416
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.7023158584759135,
+    "minutes": 5.584126166502634
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.454719652084891,
+    "minutes": 8.365422936280568
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.3143778581262064,
+    "minutes": 11.14628570874532
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.2200082501978553,
+    "minutes": 13.925706565380096
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.1371543956695915,
+    "minutes": 16.708218896389006
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.0626479604416716,
+    "minutes": 19.559902346134187
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 3.002077043943371,
+    "minutes": 22.41380500793457
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.863616977122088,
+    "minutes": 25.193118957678475
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.7445529822265877,
+    "minutes": 27.967086664835612
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.7435076284433033,
+    "minutes": 28.21728422641754
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A0_seed2": {
+  "tag": "A0_seed2",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": true,
+   "latent": true,
+   "seed": 7,
+   "tag": "A0_seed2",
+   "change": "baseline, second seed",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 32769408,
+  "engram_params": 11034624,
+  "backbone_params": 21734784,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.70926822938327,
+  "final_val_ppl": 15.01828155568162,
+  "val_tokens": 997888,
+  "tokens_per_sec": 29839.203403055246,
+  "train_minutes": 26.80407569408417,
+  "wall_minutes": 28.762723290920256,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.280115442682132,
+    "minutes": 2.8569610118865967
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.7035905447539577,
+    "minutes": 5.705016585191091
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.45258784697813,
+    "minutes": 8.559323779741923
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.3103390606077223,
+    "minutes": 11.44633333683014
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.209221940214295,
+    "minutes": 14.295034563541412
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.1202120029846787,
+    "minutes": 17.134916853904723
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.021186459180696,
+    "minutes": 19.977365310986837
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.956450560204245,
+    "minutes": 22.820069885253908
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.824878504730115,
+    "minutes": 25.664062114556632
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.7099854746740744,
+    "minutes": 28.507072285811105
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.70926822938327,
+    "minutes": 28.761296649773914
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A0_seed3": {
+  "tag": "A0_seed3",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": true,
+   "latent": true,
+   "seed": 99,
+   "tag": "A0_seed3",
+   "change": "baseline, third seed",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 32769408,
+  "engram_params": 11034624,
+  "backbone_params": 21734784,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.7301288108571238,
+  "final_val_ppl": 15.33486218943532,
+  "val_tokens": 997888,
+  "tokens_per_sec": 29177.57973206947,
+  "train_minutes": 27.411878367265064,
+  "wall_minutes": 29.432336409886677,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.278769231319672,
+    "minutes": 2.9038039565086367
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.700806041813435,
+    "minutes": 5.819406425952911
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.453580975716025,
+    "minutes": 8.731766374905904
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.31624708669867,
+    "minutes": 11.65585974852244
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.219784414174925,
+    "minutes": 14.563996899127961
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.142084233267849,
+    "minutes": 17.476599156856537
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.066489413923456,
+    "minutes": 20.38689870039622
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.9930913160861365,
+    "minutes": 23.300837341944376
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.8506255387158927,
+    "minutes": 26.22218922773997
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.7307500075902493,
+    "minutes": 29.147722681363422
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.7301288108571238,
+    "minutes": 29.419681040445962
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A1_no_engram": {
+  "tag": "A1_no_engram",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": true,
+   "latent": true,
+   "tag": "A1_no_engram",
+   "change": "Engram memory removed",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 21734784,
+  "engram_params": 0,
+  "backbone_params": 21734784,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.768649481454833,
+  "final_val_ppl": 15.9370961255379,
+  "val_tokens": 997888,
+  "tokens_per_sec": 33516.93026761131,
+  "train_minutes": 23.86293315887451,
+  "wall_minutes": 25.73617563645045,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.449719452013904,
+    "minutes": 2.5346845984458923
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.846296973935514,
+    "minutes": 5.076258091131846
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.571193302637984,
+    "minutes": 7.63498824040095
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.4043227705116332,
+    "minutes": 10.295654491583507
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.2712666994489235,
+    "minutes": 12.839476251602173
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.163323286437205,
+    "minutes": 15.370164283116658
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.0730378183724025,
+    "minutes": 17.903204588095345
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 3.021810393140156,
+    "minutes": 20.43510077794393
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.8960915526834863,
+    "minutes": 22.966118506590526
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.7692967180474226,
+    "minutes": 25.49998690287272
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.768649481454833,
+    "minutes": 25.735155753294627
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A1_no_engram_seed2": {
+  "tag": "A1_no_engram_seed2",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": true,
+   "latent": true,
+   "tag": "A1_no_engram_seed2",
+   "change": "A1 with seed 7 (paired with A0_seed2)",
+   "seed": 7,
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 21734784,
+  "engram_params": 0,
+  "backbone_params": 21734784,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.792194013659192,
+  "final_val_ppl": 16.316779796232446,
+  "val_tokens": 997888,
+  "tokens_per_sec": 31341.026077862396,
+  "train_minutes": 25.51965799331665,
+  "wall_minutes": 27.45078559319178,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.458688999213213,
+    "minutes": 2.6866382400194806
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.8652277095553935,
+    "minutes": 5.424455447991689
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.597013826795943,
+    "minutes": 8.147729996840159
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.442517010966223,
+    "minutes": 10.848591852188111
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.3299773868504032,
+    "minutes": 13.551721596717835
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.22345763099322,
+    "minutes": 16.259774708747862
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.119273105971687,
+    "minutes": 18.974088112513225
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 3.055056076284676,
+    "minutes": 21.696472624937694
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.9204305998174394,
+    "minutes": 24.436672830581664
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.792797774152917,
+    "minutes": 27.182423210144044
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.792194013659192,
+    "minutes": 27.43998923699061
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A2_no_gate": {
+  "tag": "A2_no_gate",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": false,
+   "latent": true,
+   "tag": "A2_no_gate",
+   "change": "sigmoid output gate removed",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 31589760,
+  "engram_params": 11034624,
+  "backbone_params": 20555136,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.746607125264183,
+  "final_val_ppl": 15.589648327778713,
+  "val_tokens": 997888,
+  "tokens_per_sec": 29631.24909610268,
+  "train_minutes": 26.992188688119253,
+  "wall_minutes": 29.010495257377624,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.2970828784925015,
+    "minutes": 2.916474469502767
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.723873044479315,
+    "minutes": 5.801899675528208
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.4845469060342946,
+    "minutes": 8.666795432567596
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.3483548328288095,
+    "minutes": 11.551375997066497
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.251258925941432,
+    "minutes": 14.426889781157175
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.149597254088134,
+    "minutes": 17.290703813234966
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.047266721358478,
+    "minutes": 20.148528107007344
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.9897805018691663,
+    "minutes": 23.014596287409464
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.8631537786320336,
+    "minutes": 25.886550279458366
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.747549626079812,
+    "minutes": 28.747446739673613
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.746607125264183,
+    "minutes": 29.009445679187774
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A3_no_qknorm": {
+  "tag": "A3_no_qknorm",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": false,
+   "gated": true,
+   "latent": true,
+   "tag": "A3_no_qknorm",
+   "change": "QK-norm removed",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 32767872,
+  "engram_params": 11034624,
+  "backbone_params": 21733248,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.8039468219183603,
+  "final_val_ppl": 16.50967911453258,
+  "val_tokens": 997888,
+  "tokens_per_sec": 36676.09759454699,
+  "train_minutes": 21.80745278596878,
+  "wall_minutes": 23.91059546470642,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.311218679593489,
+    "minutes": 2.3287001331647237
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.729155666220182,
+    "minutes": 4.661175942420959
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.4816504889968236,
+    "minutes": 6.991993141174317
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.3456131733032666,
+    "minutes": 9.316314311822255
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.253058963460516,
+    "minutes": 11.640443102518718
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.173597179724046,
+    "minutes": 13.965440169970195
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.107459162246759,
+    "minutes": 16.289411556720733
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 3.057308629575664,
+    "minutes": 18.616102027893067
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.9283090481824177,
+    "minutes": 20.944137267271678
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.804515103183079,
+    "minutes": 23.27065854469935
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.8039468219183603,
+    "minutes": 23.727391588687897
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A3_no_qknorm_seed2": {
+  "tag": "A3_no_qknorm_seed2",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": false,
+   "gated": true,
+   "latent": true,
+   "tag": "A3_no_qknorm_seed2",
+   "change": "A3 with seed 7 (paired with A0_seed2)",
+   "seed": 7,
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 32767872,
+  "engram_params": 11034624,
+  "backbone_params": 21733248,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.7742706580673384,
+  "final_val_ppl": 16.026933617199386,
+  "val_tokens": 997888,
+  "tokens_per_sec": 37529.79447701363,
+  "train_minutes": 21.311394794782004,
+  "wall_minutes": 22.946627632776895,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.30303344511264,
+    "minutes": 2.2474376837412517
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.7334052389740884,
+    "minutes": 4.511729192733765
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.480358558290735,
+    "minutes": 6.783647894859314
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.3433280629705564,
+    "minutes": 9.053720013300579
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.244919571893652,
+    "minutes": 11.32475824356079
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.1638406310220937,
+    "minutes": 13.596297017733256
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.0932707661784815,
+    "minutes": 15.872903768221537
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 3.0328384485533446,
+    "minutes": 18.153501590092976
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.900628674635831,
+    "minutes": 20.434578466415406
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.7752109603920982,
+    "minutes": 22.71569159825643
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.7742706580673384,
+    "minutes": 22.93274672826131
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A4_mha": {
+  "tag": "A4_mha",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": true,
+   "latent": false,
+   "tag": "A4_mha",
+   "change": "MLA replaced by standard MHA with full-head RoPE (QK-norm, gate, Engram kept)",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 32669056,
+  "engram_params": 11034624,
+  "backbone_params": 21634432,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.670392281584644,
+  "final_val_ppl": 14.445634837991529,
+  "val_tokens": 997888,
+  "tokens_per_sec": 34188.28467479208,
+  "train_minutes": 23.394337395826977,
+  "wall_minutes": 25.323541732629142,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.2342821133938005,
+    "minutes": 2.5231293280919393
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.6546989957634275,
+    "minutes": 5.00882609685262
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.410123295634756,
+    "minutes": 7.493036170800527
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.2685415034051917,
+    "minutes": 9.970332531134288
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.155516107245064,
+    "minutes": 12.45266298453013
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.050144289015745,
+    "minutes": 14.955015436808269
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 2.9506916375940673,
+    "minutes": 17.456158725420632
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.898972163878079,
+    "minutes": 19.970292754968007
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.7801962534912796,
+    "minutes": 22.551891096433003
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.6709214514374673,
+    "minutes": 25.08370791276296
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.670392281584644,
+    "minutes": 25.319882726669313
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "A4_mha_seed2": {
+  "tag": "A4_mha_seed2",
+  "group": "A",
+  "config": {
+   "group": "A",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "kv_latent": 192,
+   "rope_dim": 32,
+   "d_ff": 1024,
+   "engram_layers": [
+    1,
+    4
+   ],
+   "engram_rows": 20480,
+   "qk_norm": true,
+   "gated": true,
+   "latent": false,
+   "tag": "A4_mha_seed2",
+   "change": "A4 with seed 7 (paired with A0_seed2)",
+   "seed": 7,
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 32669056,
+  "engram_params": 11034624,
+  "backbone_params": 21634432,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.6576104817358637,
+  "final_val_ppl": 14.26216863673551,
+  "val_tokens": 997888,
+  "tokens_per_sec": 35022.52883928709,
+  "train_minutes": 22.83707925081253,
+  "wall_minutes": 24.577731426556905,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.240132112145852,
+    "minutes": 2.4277557492256165
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.6652160887231333,
+    "minutes": 4.858547600110372
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.4137981947169296,
+    "minutes": 7.290636269251506
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.2558370172335223,
+    "minutes": 9.721903065840403
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.1230955167939687,
+    "minutes": 12.15308427810669
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.011527531204498,
+    "minutes": 14.580086680253347
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 2.9329742937592007,
+    "minutes": 17.015834887822468
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.887239647009484,
+    "minutes": 19.45224413474401
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.7689323826531007,
+    "minutes": 21.894977951049803
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.658691457628042,
+    "minutes": 24.33377816279729
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.6576104817358637,
+    "minutes": 24.566628710428873
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B0_full": {
+  "tag": "B0_full",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 2,
+   "d_ff": 1024,
+   "pos_emb_type": "rope",
+   "norm_type": "rmsnorm",
+   "ffn_type": "swiglu",
+   "tag": "B0_full",
+   "change": "baseline: GQA 6/2, RoPE, RMSNorm, SwiGLU",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 18880896,
+  "engram_params": 0,
+  "backbone_params": 18880896,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.866913530751948,
+  "final_val_ppl": 17.582666006870166,
+  "val_tokens": 997888,
+  "tokens_per_sec": 37230.900070702926,
+  "train_minutes": 21.48248538573583,
+  "wall_minutes": 23.795994158585867,
+  "skipped_fp16_steps": 1,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.515130655162453,
+    "minutes": 2.3076931834220886
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.862108269735995,
+    "minutes": 4.613687038421631
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.577143126478435,
+    "minutes": 6.9175736943880715
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.387827316879186,
+    "minutes": 9.219574205080669
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.237436758425983,
+    "minutes": 11.526193885008494
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.1085965272522755,
+    "minutes": 13.828538592656454
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.0089927240785665,
+    "minutes": 16.131891655921937
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.942643559486698,
+    "minutes": 18.437669010957084
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.8940299485756102,
+    "minutes": 20.744994215170543
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.868156242762057,
+    "minutes": 23.055469663937888
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.866913530751948,
+    "minutes": 23.605996187527975
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B0_seed2": {
+  "tag": "B0_seed2",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 2,
+   "d_ff": 1024,
+   "pos_emb_type": "rope",
+   "norm_type": "rmsnorm",
+   "ffn_type": "swiglu",
+   "seed": 7,
+   "tag": "B0_seed2",
+   "change": "baseline, second seed",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 18880896,
+  "engram_params": 0,
+  "backbone_params": 18880896,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.9438457077989337,
+  "final_val_ppl": 18.98873118707992,
+  "val_tokens": 997888,
+  "tokens_per_sec": 36315.67006793693,
+  "train_minutes": 22.0238884528478,
+  "wall_minutes": 23.88391060034434,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.513684479746224,
+    "minutes": 2.3630037387212117
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.8705983443282213,
+    "minutes": 4.7230016986529035
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.594865139354003,
+    "minutes": 7.084958453973134
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.4255872396642335,
+    "minutes": 9.448149561882019
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.295967672591701,
+    "minutes": 11.88211821715037
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.1840692420321406,
+    "minutes": 14.239532089233398
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.089525626952248,
+    "minutes": 16.592166034380593
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 3.02120780504441,
+    "minutes": 18.946997865041098
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.9727206878505528,
+    "minutes": 21.30112136999766
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.944567331477518,
+    "minutes": 23.655962200959525
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.9438457077989337,
+    "minutes": 23.882616436481477
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B0_seed3": {
+  "tag": "B0_seed3",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 2,
+   "d_ff": 1024,
+   "pos_emb_type": "rope",
+   "norm_type": "rmsnorm",
+   "ffn_type": "swiglu",
+   "tag": "B0_seed3",
+   "change": "baseline, third seed",
+   "seed": 99,
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 18880896,
+  "engram_params": 0,
+  "backbone_params": 18880896,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.921053919197658,
+  "final_val_ppl": 18.560838779495896,
+  "val_tokens": 997888,
+  "tokens_per_sec": 36600.473939659794,
+  "train_minutes": 21.85251119931539,
+  "wall_minutes": 23.65277806123098,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.505594092066194,
+    "minutes": 2.319781013329824
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.866996730884691,
+    "minutes": 4.660652112960816
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.584867613446474,
+    "minutes": 7.000312960147857
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.409018675567799,
+    "minutes": 9.33523849248886
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.276786684806436,
+    "minutes": 11.672172252337138
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.1641435667207265,
+    "minutes": 14.011596186955769
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.0679794466146877,
+    "minutes": 16.357759535312653
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.9992437597541945,
+    "minutes": 18.70736643473307
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.949225969348827,
+    "minutes": 21.05524831612905
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.9221438099140387,
+    "minutes": 23.404623293876647
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.921053919197658,
+    "minutes": 23.64035936196645
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B1_mha": {
+  "tag": "B1_mha",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 6,
+   "d_ff": 1024,
+   "pos_emb_type": "rope",
+   "norm_type": "rmsnorm",
+   "ffn_type": "swiglu",
+   "tag": "B1_mha",
+   "change": "full MHA (6 KV heads) instead of GQA",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 20453760,
+  "engram_params": 0,
+  "backbone_params": 20453760,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.8537309547764877,
+  "final_val_ppl": 17.35240224574548,
+  "val_tokens": 997888,
+  "tokens_per_sec": 34538.38580430292,
+  "train_minutes": 23.15719881057739,
+  "wall_minutes": 25.091354429721832,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.513256437048171,
+    "minutes": 2.4622078418731688
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.849808890125946,
+    "minutes": 4.949040333429973
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.5642620153216718,
+    "minutes": 7.500990351041158
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.377076090758369,
+    "minutes": 9.983274598916372
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.2304228043299323,
+    "minutes": 12.478413832187652
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.1020621783675875,
+    "minutes": 14.950272556145986
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.0003418792755925,
+    "minutes": 17.426569537321726
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.9320369933800188,
+    "minutes": 19.90476437807083
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.8824239802274905,
+    "minutes": 22.377089603741965
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.854271371037976,
+    "minutes": 24.85297296444575
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.8537309547764877,
+    "minutes": 25.08983317613602
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B2_sinusoidal": {
+  "tag": "B2_sinusoidal",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 2,
+   "d_ff": 1024,
+   "pos_emb_type": "sinusoidal",
+   "norm_type": "rmsnorm",
+   "ffn_type": "swiglu",
+   "tag": "B2_sinusoidal",
+   "change": "sinusoidal absolute positions instead of RoPE",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 18880896,
+  "engram_params": 0,
+  "backbone_params": 18880896,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 5.306908389737877,
+  "final_val_ppl": 201.72560638692838,
+  "val_tokens": 997888,
+  "tokens_per_sec": 39183.619153553846,
+  "train_minutes": 20.41190385023753,
+  "wall_minutes": 22.206207676728567,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 7.022625116276827,
+    "minutes": 2.154637070496877
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 6.247887530652237,
+    "minutes": 4.339891417821248
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 6.1314801587515335,
+    "minutes": 6.5331976016362505
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 6.077228810372507,
+    "minutes": 8.720485051472982
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 5.731082710747599,
+    "minutes": 10.913724478085836
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 5.592167908623011,
+    "minutes": 13.256897095839182
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 5.4941177759615805,
+    "minutes": 15.438339563210805
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 5.4151777186229815,
+    "minutes": 17.623659539222718
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 5.3490246341679875,
+    "minutes": 19.809166177113852
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 5.3115204174497785,
+    "minutes": 21.99636829694112
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 5.306908389737877,
+    "minutes": 22.205180553595223
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B2b_sinusoidal_scaled": {
+  "tag": "B2b_sinusoidal_scaled",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 2,
+   "d_ff": 1024,
+   "pos_emb_type": "sinusoidal",
+   "norm_type": "rmsnorm",
+   "ffn_type": "swiglu",
+   "tag": "B2b_sinusoidal_scaled",
+   "change": "sinusoidal positions, token embedding multiplied by sqrt(d_model) before adding them (Vaswani et al.)",
+   "scale_emb": true,
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 18880896,
+  "engram_params": 0,
+  "backbone_params": 18880896,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.9753702358443532,
+  "final_val_ppl": 19.59687737308577,
+  "val_tokens": 997888,
+  "tokens_per_sec": 39514.127816748376,
+  "train_minutes": 20.241172230243684,
+  "wall_minutes": 21.84245150089264,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 5.026832073636395,
+    "minutes": 2.140166401863098
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 4.141947574527402,
+    "minutes": 4.305131236712138
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.7564219733639947,
+    "minutes": 6.471223946412405
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.5392290441240024,
+    "minutes": 8.635777258872986
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.3711077492930697,
+    "minutes": 10.806756830215454
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.2378885681168,
+    "minutes": 12.971657661596934
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.12969676233549,
+    "minutes": 15.136166727542877
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 3.0563223532005845,
+    "minutes": 17.30240250825882
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 3.0048934384576476,
+    "minutes": 19.46800274848938
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.976314642540671,
+    "minutes": 21.632668646176658
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.9753702358443532,
+    "minutes": 21.839721016089122
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B3_gelu": {
+  "tag": "B3_gelu",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 2,
+   "d_ff": 1536,
+   "pos_emb_type": "rope",
+   "norm_type": "rmsnorm",
+   "ffn_type": "gelu",
+   "tag": "B3_gelu",
+   "change": "GELU MLP (d_ff 1536, with biases, Arch 1 FeedForward) instead of SwiGLU",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 18896256,
+  "engram_params": 0,
+  "backbone_params": 18896256,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.887575750414563,
+  "final_val_ppl": 17.949742158722824,
+  "val_tokens": 997888,
+  "tokens_per_sec": 37324.459574465596,
+  "train_minutes": 21.42863622903824,
+  "wall_minutes": 23.743219180901846,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.620500170187561,
+    "minutes": 2.285146959622701
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.9565061615209447,
+    "minutes": 4.585654890537262
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.6523813381752888,
+    "minutes": 6.929402414957682
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.465164585808352,
+    "minutes": 9.230269618829091
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.2966959842233674,
+    "minutes": 11.529082187016805
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.144961320418098,
+    "minutes": 13.828774376710255
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 3.036703301063252,
+    "minutes": 16.12902021408081
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.9676114567247276,
+    "minutes": 18.429658695062002
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.917067862462239,
+    "minutes": 20.733725889523825
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.888420601145557,
+    "minutes": 23.034222388267516
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.887575750414563,
+    "minutes": 23.46180848280589
+   }
+  ],
+  "gpu": "Tesla T4"
+ },
+ "B4_layernorm": {
+  "tag": "B4_layernorm",
+  "group": "B",
+  "config": {
+   "group": "B",
+   "d_model": 384,
+   "n_layers": 8,
+   "n_heads": 6,
+   "n_kv_heads": 2,
+   "d_ff": 1024,
+   "pos_emb_type": "rope",
+   "norm_type": "layernorm",
+   "ffn_type": "swiglu",
+   "tag": "B4_layernorm",
+   "change": "LayerNorm instead of RMSNorm",
+   "train_tokens": 48000000,
+   "max_minutes": 75
+  },
+  "params": 18887424,
+  "engram_params": 0,
+  "backbone_params": 18887424,
+  "updates_done": 2929,
+  "updates_planned": 2929,
+  "tokens_seen": 47988736,
+  "final_val_loss": 2.858598689533858,
+  "final_val_ppl": 17.437075052470792,
+  "val_tokens": 997888,
+  "tokens_per_sec": 40068.96402278192,
+  "train_minutes": 19.96089208126068,
+  "wall_minutes": 21.960975754261018,
+  "skipped_fp16_steps": 0,
+  "stopped_early": false,
+  "history": [
+   {
+    "step": 292,
+    "tokens": 4784128,
+    "val_loss": 4.506520873647644,
+    "minutes": 2.1404056747754416
+   },
+   {
+    "step": 584,
+    "tokens": 9568256,
+    "val_loss": 3.860068894215521,
+    "minutes": 4.294438191254934
+   },
+   {
+    "step": 876,
+    "tokens": 14352384,
+    "val_loss": 3.5671740356257415,
+    "minutes": 6.459659532705943
+   },
+   {
+    "step": 1168,
+    "tokens": 19136512,
+    "val_loss": 3.37963455575989,
+    "minutes": 8.616402860482534
+   },
+   {
+    "step": 1460,
+    "tokens": 23920640,
+    "val_loss": 3.2227497678221404,
+    "minutes": 10.770623477300008
+   },
+   {
+    "step": 1752,
+    "tokens": 28704768,
+    "val_loss": 3.0948312034235053,
+    "minutes": 12.921294148763021
+   },
+   {
+    "step": 2044,
+    "tokens": 33488896,
+    "val_loss": 2.996459551870425,
+    "minutes": 15.080266817410786
+   },
+   {
+    "step": 2336,
+    "tokens": 38273024,
+    "val_loss": 2.932212707261173,
+    "minutes": 17.236979281902315
+   },
+   {
+    "step": 2628,
+    "tokens": 43057152,
+    "val_loss": 2.8850543921026834,
+    "minutes": 19.401060016949973
+   },
+   {
+    "step": 2920,
+    "tokens": 47841280,
+    "val_loss": 2.8592311126137466,
+    "minutes": 21.56319978237152
+   },
+   {
+    "step": 2929,
+    "tokens": 47988736,
+    "val_loss": 2.858598689533858,
+    "minutes": 21.94874587059021
+   }
+  ],
+  "gpu": "Tesla T4"
+ }
+}
