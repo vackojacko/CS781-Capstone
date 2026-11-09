@@ -1,28 +1,13 @@
-# Phase 1 component ablations
+# Phase 1: Ablations
 
-These runs test the design choices of Arch 4 and Arch 2. Each run removes or replaces one part of a small version of the model and keeps everything else the same. The submitted models were not changed.
+These runs test the parts of my Arch 4 and Arch 2 models. Each run takes a small version of the model and removes or swaps one part, keeping everything else the same. The submitted models were not changed.
 
 ## Setup
 
-- Data: 64M training tokens (16M per source) and 1M validation tokens from held-out documents, with my 16,384-token BPE and the Arch 2 pipeline.
-- Every run: context 512, 48.0M tokens (2,929 updates of 32 x 512), one pass, data seed 1234, model seed 42 unless stated.
-- AdamW (0.9, 0.95), peak LR 1e-3, min LR 1e-4, 150 warmup updates, weight decay 0.1, gradient clip 1.0, fp16.
-- Group A (small Arch 4): d 384, 8 layers, MLA latent 192, QK norm, output gate, Engram at layers 1 and 4. 32.8M parameters. Warmup-stable-decay schedule.
-- Group B (small Arch 2): d 384, 8 layers, GQA 6/2, SwiGLU 1024, RoPE, RMSNorm. 18.9M parameters. Cosine schedule.
-- Metric: validation loss on the 1M held-out tokens, measured 10 times and at the end.
-
-## Files
-
-| File | Content |
-|---|---|
-| `prep_data.py` | builds the token subset and the Engram compression map |
-| `arch4_model.py` | small Arch 4 with switches `engram_layers`, `qk_norm`, `gated`, `latent` |
-| `arch2_model.py` | small Arch 2 with switches `n_kv_heads`, `pos_emb_type`, `scale_emb`, `ffn_type`, `norm_type` |
-| `train_ablation.py` | trains and evaluates one run |
-| `configs.json` | the 18 run configs |
-| `collect_results.py` | builds `results.json` and `results_table.md` |
-| `results.json` | final numbers and validation history of every run |
-| `results_table.md` | results with throughput and the loss at every checkpoint |
+- Data: 64M training tokens (16M per source) and 1M validation tokens from held-out documents, with my 16,384-token BPE.
+- Every run sees 48.0M tokens with context 512, and uses model seed 42 unless the table says otherwise.
+- Group A is a small Arch 4 with 32.8M parameters. Group B is a small Arch 2 with 18.9M parameters.
+- Metric: validation loss on the 1M held-out tokens.
 
 ## Results
 
@@ -58,15 +43,15 @@ Group B. Baseline over 3 seeds: mean 2.9106, std 0.0395. Variants use seed 42 an
 
 ## What I learned
 
-- Engram and QK norm help. Removing either one made the loss worse on both seeds.
+- Engram memory and QK norm help. Removing either one made the loss worse on both seeds.
 - RoPE beats sinusoidal positions. Plain sinusoidal nearly failed to train, because the position signal is much bigger than the small token embedding.
-- The gate, GQA, SwiGLU and RMSNorm differ by less than the seed noise.
+- The output gate, GQA, SwiGLU and RMSNorm change the loss by less than the seed noise.
 - MLA is 0.05 to 0.07 worse than MHA. MLA is meant to shrink the KV cache, so this is its cost.
 
 Limits: the models are small, several runs have one seed, and the metric is validation loss, not BERTScore.
 
 ## How to run
 
-1. Put the training files in `data/` and `legal_bpe_16384.json` in the working folder (constants at the top of `prep_data.py`). Run `python prep_data.py`. It writes `abl_data/train.npy`, `abl_data/val.npy`, `abl_data/engram_compress.npy` and `abl_data/meta.json`.
-2. Run `python train_ablation.py <tag>` on a GPU, for example `python train_ablation.py A0_full`. Tags are in `configs.json`. Each run writes `runs/<tag>/log.txt` and `runs/<tag>/result.json` and takes about 20 to 30 minutes on a T4.
-3. Run `python collect_results.py` to rebuild `results.json` and `results_table.md`.
+1. Put the training files in `data/` and `legal_bpe_16384.json` in the working folder (constants at the top of `prep_data.py`). Run `python prep_data.py`. It writes the data to `abl_data/`.
+2. On a GPU, run `python train_ablation.py <tag>`, for example `python train_ablation.py A0_full`. The 18 tags are in `configs.json`. Each run writes to `runs/<tag>/` and takes about 20 to 30 minutes on a T4.
+3. Run `python collect_results.py` to rebuild `results.json` and `results_table.md`. The second file also has the loss at every checkpoint.
