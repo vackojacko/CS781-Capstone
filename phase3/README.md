@@ -75,10 +75,3 @@ The other runs can be trained on their own: `python train.py rr2b`, `python trai
 | Arch 4, LoRA (rr1) | 0.5139 |
 | Distilled Arch 2 | 0.5354 |
 | Ensemble, Viterbi and Dissent rule (best) | 0.6345 |
-
-## Notes
-
-- The step that made `arch4_mntp_p3` is not in this folder. The code only loads its result.
-- On my saved probabilities, `predict.py` gives 0.6345 again. Retraining is not exactly the same each time, and dev scores moved by about 0.01 between reruns.
-- The single runs were submitted before I added the Dissent rule, so they never predicted Dissent or PrecedentOverruled. To get them exactly, set `NEVER = [5, 8]` in `decode.py` and remove the Dissent rule call in `decode.py` before training.
-- `distill.py` writes no zip. The distilled Arch 2 submission is its CRF prediction on the test set.

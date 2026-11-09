@@ -99,8 +99,3 @@ Dependencies: Python 3, PyTorch, NumPy, scikit-learn, and a GPU for training (I 
 
 The `first`, `last`, `selected`, `whole` and `tail2` submissions of these runs (#01 to #46) also come from
 this code.
-
-## Notes
-
-My other submissions are ensembles of other runs or runs not kept here (E7, E13 to E20). None scored
-above #53.

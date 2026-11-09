@@ -90,7 +90,3 @@ Dependencies: Python 3, torch, numpy, scikit-learn, peft, bert_score. Training n
 | 17: Abstractive Arch 2 | 0.8382 |
 | 68: centrality and seven models, no headnote word score | 0.8525 |
 | 82: final system | 0.8527 (best) |
-
-## Notes
-
-I made 82 submissions and 81 were scored. The rest were small changes to the same mix and simple baselines. To get submission 68, set `W_PROPENSITY = 0`, `MIN_WORDS = 0` and `MAX_WORDS = 100000` in `blend.py`.

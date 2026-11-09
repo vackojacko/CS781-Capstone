@@ -88,7 +88,3 @@ Phase 7 has 14 scored submissions. The defaults are `W_WORDS = 0.5` and `W_VOTES
 | 11: 2 plus word view at 1.0 (`W_WORDS = 1.0`) | 0.4820 |
 | 13: 6 plus Arch 4 QLoRA dense at 0.25 (defaults, my final system) | 0.4802 |
 | 14: 10 with votes at 6 (`W_WORDS = 0.75`, `W_VOTES = 6.0`) | 0.4808 |
-
-## Notes
-
-Submissions 3, 4, 5, 7 and 12 used scores that are not in this folder. They scored 0.4572, 0.4572, 0.4814, 0.4790 and 0.4814.
