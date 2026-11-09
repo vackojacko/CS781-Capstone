@@ -6,10 +6,6 @@ from sklearn.metrics import f1_score
 from data import LABELS
 from rules import dissent_rule
 
-# labels that are never predicted, the first single model submissions used [5, 8]
-NEVER = []
-
-
 @torch.no_grad()
 def predict(model, doc):
     model.eval()
@@ -18,14 +14,12 @@ def predict(model, doc):
     # float64, in float32 the rows of very long docs dont sum to 1
     probs = model.crf.marginals(E.double()).cpu().numpy()
     probs = probs / probs.sum(axis=1, keepdims=True)
-    E[:, NEVER] = -10000
     return dissent_rule(doc, model.crf.viterbi(E)), probs
 
 
 def transition_viterbi(probs, T, beta):
     # viterbi over sentence probabilities with label transitions counted on the training docs
     lp = np.log(np.clip(probs, 1e-9, 1.0))
-    lp[:, NEVER] = -1e9
     lt = beta * np.log(T)
     score = lp[0].copy()
     back = []

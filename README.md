@@ -4,7 +4,7 @@ Abeer Gupta (230031), Codabench username a_230031.
 
 This folder has the code for my best models in all seven capstone phases. I trained every model from scratch with my own BPE tokenizer, using only the official course data. In Phase 1 I trained four language models, and in Phases 2 to 7 I fine-tuned all four for one legal task each.
 
-| Phase | Task | Metric | Best score | Rank | Folder |
+| Phase | Task | Metric | Leaderboard score | Rank | Folder |
 |---|---|---|---|---|---|
 | 1 | Legal LM pretraining | BERTScore F1 | 0.8402 | 17 | `phase1` |
 | 2 | Legal NER | strict macro-F1 | 0.6503 | 7 | `phase2` |
@@ -29,7 +29,7 @@ Each phase folder has its own README with the task, my final system, the models 
 
 ## Bidirectional Arch 4
 
-Arch 4 is a decoder, so each token can only see the tokens before it. For the later tasks I wanted each token to see the whole text. In `phase2/adapt.py` I removed the causal mask and trained Arch 4 for 800 more updates with masked next-token prediction. It is my best model or the teacher of my best model in Phases 2 to 6.
+Arch 4 is a decoder, so each token can only see the tokens before it. For the later tasks I wanted each token to see the whole text. In `phase2/adapt.py` I first continued its next-token training for 1500 updates, then removed the causal mask and trained it for 800 more updates with masked next-token prediction. It is my best model or the teacher of my best model in Phases 2 to 6.
 
 ## Setup
 

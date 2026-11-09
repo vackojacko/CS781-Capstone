@@ -95,7 +95,7 @@ Dependencies: Python 3, PyTorch, NumPy, scikit-learn, and a GPU for training (I 
 | #45 Arch 4 student E12, hier | 0.7772 |
 | #48 Arch 4 E11, hier | 0.7896 |
 | #50 Arch 4 E10, hier | 0.7947 |
-| #53 E1 + E10 + E11 (best) | 0.8154 |
+| #53 E1 + E10 + E11 (leaderboard) | 0.8154 |
 
 The `first`, `last`, `selected`, `whole` and `tail2` submissions of these runs (#01 to #46) also come from
 this code.

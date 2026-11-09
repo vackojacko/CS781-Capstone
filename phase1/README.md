@@ -14,7 +14,7 @@ My final system is my Arch 2 model with MBR decoding.
 4. MBR decoding: for each continuation I compute its mean ROUGE-1/2 F1 against the other 15, and I keep the one that agrees most with the others. If some continuations have exactly 128 words, only those take part.
 5. The kept continuation is cut to exactly 128 words.
 
-Best Codabench score: 0.8402.
+Leaderboard score: 0.8402.
 
 ## Models I tried
 
@@ -24,7 +24,7 @@ Best Codabench score: 0.8402.
 | Arch 2: LLaMA style decoder, 61.6M | plain sampling | 0.8334 |
 | Arch 3: encoder decoder, 86.1M | plain sampling | 0.8275 |
 | Arch 4: latent attention decoder with n gram memory, 139.1M | plain sampling | 0.8365 |
-| Arch 2 | MBR over 16 samples (best) | 0.8402 |
+| Arch 2 | MBR over 16 samples (leaderboard) | 0.8402 |
 
 All models are written by hand in PyTorch, starting from my Assignment 3 code. On my held out prompts, MBR scored higher than single samples, and MBR over 16 samples scored higher than over 4 or 8.
 
@@ -73,4 +73,4 @@ The training scripts continue from their last checkpoint if they are run again. 
 | Arch 2, plain sampling | `outputs/arch2/` | 0.8334 |
 | Arch 3, plain sampling | `outputs/arch3/` | 0.8275 |
 | Arch 4, plain sampling | `outputs/arch4/` | 0.8365 |
-| Arch 2 + MBR over 16 samples (best) | `outputs/mbr16/` | 0.8402 |
+| Arch 2 + MBR over 16 samples (leaderboard) | `outputs/mbr16/` | 0.8402 |

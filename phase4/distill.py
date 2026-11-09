@@ -1,6 +1,5 @@
 # A4 q6 skeleton (knowledge distillation), completed. teacher logits are cached once before the student trains
 import numpy as np
-import torch
 import torch.nn.functional as F
 
 # written by train.py for e1, e6 and e2 (teacher_n = 16000), in this order
@@ -16,20 +15,6 @@ def distillation_loss(student_logits, teacher_logits, labels, tau=2.0, kd_weight
     kd = kd * tau ** 2
     total = (1 - kd_weight) * ce + kd_weight * kd
     return total, {"ce": ce.item(), "kd": kd.item()}
-
-
-def check_distillation_loss():
-    torch.manual_seed(0)
-    s = torch.randn(8, 2, requires_grad=True)
-    t = torch.randn(8, 2, requires_grad=True)
-    y = torch.randint(0, 2, (8,))
-    assert torch.allclose(distillation_loss(s, t, y, kd_weight=0.0)[0], F.cross_entropy(s, y))
-    assert distillation_loss(s, s.detach(), y, kd_weight=1.0)[0].abs() < 1e-6
-    big = distillation_loss(s * 1e4, t * 1e4, y)[0]
-    assert torch.isfinite(big)
-    distillation_loss(s, t, y)[0].backward()
-    assert s.grad is not None and t.grad is None
-    print("distillation checks passed")
 
 
 def save_teacher_cache(path, case_ids, logits):

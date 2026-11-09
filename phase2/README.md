@@ -15,7 +15,7 @@ My final system is one model: my Phase 1 Arch 4 made bidirectional, with LoRA an
 5. If a string of at least 6 characters is tagged with an average confidence of at least 0.5, its other copies in the same document get the same label, and every copy of that string takes the label with the highest total confidence.
 6. A small boundary repair fixes span edges that cut a word, and trailing brackets and punctuation.
 
-Best Codabench score: 0.6503 (seed 1).
+Leaderboard score: 0.6503 (seed 1).
 
 ## Models I tried
 
@@ -84,6 +84,6 @@ Each `train.py` run writes its test log probabilities, the final model and a sub
 | Arch 2, distilled from Arch 4 | `arch2_full_h128_kd` | 0.5425 |
 | Arch 4, full fine tuning | `arch4_full_h128` | 0.5957 |
 | Bidirectional Arch 4, LoRA, seed 0 | `arch4_mntp_lora_h128_bidir` | 0.6261 |
-| Bidirectional Arch 4, LoRA, seed 1 (best) | `arch4_mntp_lora_h128_s1_bidir` | 0.6503 |
+| Bidirectional Arch 4, LoRA, seed 1 (leaderboard) | `arch4_mntp_lora_h128_s1_bidir` | 0.6503 |
 
 The four required submissions are Arch 1 LoRMA+ (0.3351), Arch 2 distilled (0.5425), Arch 3 full fine tuning (0.3640) and bidirectional Arch 4 LoRA (0.6503).

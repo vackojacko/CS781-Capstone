@@ -11,7 +11,7 @@ The input is a query judgment where the citations, names and organisations are h
 - The 5 most similar training queries vote for the cases they cite.
 - It adds the score of my fine-tuned Arch 4 bi-encoder (run `d2b_arch4_qlora`, trained with QLoRA). It turns each judgment into one vector and scores a pair by how close the two vectors are.
 - It uses CSLS to push down candidates that look similar to every query, and it removes the query itself from its own pool.
-- Best Codabench score: 0.4802 micro-F1@7 (submission 13), dev F1@7 0.4925.
+- Leaderboard score: 0.4802 micro-F1@7 (submission 13), dev F1@7 0.4925.
 
 The final score adds the phrase and citation sentence scores, 0.5 times the word score, the co-citation bonus, 4 times the votes and 0.25 times the Arch 4 QLoRA score. The bonus and votes use training labels for dev, and training and dev labels for test.
 

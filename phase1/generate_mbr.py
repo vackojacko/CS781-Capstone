@@ -25,7 +25,6 @@ MAX_NEW_TOKENS = MODEL_SEQ_LEN - PROMPT_KEEP
 MAX_ROWS = 64                  # rows generated together in one batch
 
 T35 = {"temperature": 0.5, "top_p": 0.95, "top_k": 20, "repetition_penalty": 1.20}
-GREEDY = {"temperature": 0.0, "top_p": 1.0, "top_k": 0, "repetition_penalty": 1.0}
 N_SAMPLES = 16
 TEST_SEED = 9000000
 

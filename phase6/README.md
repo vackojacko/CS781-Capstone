@@ -11,7 +11,7 @@ The input is one Indian court judgment and the output is a short summary of it, 
 - Each sentence also gets a model score: the average of seven sentence scoring models built on my Phase 1 models.
 - The final score is 0.48 times the word score plus 0.52 times the model score.
 - I take the top sentences until the summary has 525 words. I skip sentences shorter than 6 words or longer than 90 words.
-- Best Codabench score: 0.8527 BERTScore F1 (ROUGE-1 0.530, ROUGE-L 0.280).
+- Leaderboard score: 0.8527 BERTScore F1 (ROUGE-1 0.530, ROUGE-L 0.280).
 
 Each sentence scoring model reads the judgment with a frozen Phase 1 model and gives every sentence a probability of being in the summary. The training labels come from a greedy search that picks the sentences that best match the real headnote in ROUGE.
 
@@ -89,4 +89,4 @@ Dependencies: Python 3, torch, numpy, scikit-learn, peft, bert_score. Training n
 | 22: Arch 3 + Pfeiffer distilled from S1 (k1) | 0.8415 |
 | 17: Abstractive Arch 2 | 0.8382 |
 | 68: centrality and seven models, no headnote word score | 0.8525 |
-| 82: final system | 0.8527 (best) |
+| 82: final system | 0.8527 (leaderboard) |

@@ -11,7 +11,7 @@ The input is a legal judgment split into sentences. The output gives each senten
 - The final answer averages the sentence probabilities of three models: 0.6 distilled Arch 2, 0.2 Arch 4 with LoRA (rr1) and 0.2 Arch 4 with longer adaptation and LoRA (x2).
 - A Viterbi decoder then uses label transition counts from the training documents.
 - A simple rule marks a Dissent block: it starts at a sentence like "Name, Member (dissenting)" and runs to the end of the document.
-- All 13 labels can be predicted. Best Codabench score: 0.6345.
+- All 13 labels can be predicted. Leaderboard score: 0.6345.
 
 ## Models I tried
 
@@ -66,6 +66,8 @@ The other runs can be trained on their own: `python train.py rr2b`, `python trai
 
 ## Submissions this code reproduces
 
+The single model rows were scored before I added the Dissent rule, so rerunning them now gives slightly different files. The ensemble row is my leaderboard submission and is written by `predict.py`.
+
 | Submission | Codabench |
 |---|---|
 | Arch 1, LoRMA+ (rr2) | 0.1103 |
@@ -74,4 +76,4 @@ The other runs can be trained on their own: `python train.py rr2b`, `python trai
 | Arch 4 longer adaptation, LoRA (x2) | 0.5129 |
 | Arch 4, LoRA (rr1) | 0.5139 |
 | Distilled Arch 2 | 0.5354 |
-| Ensemble, Viterbi and Dissent rule (best) | 0.6345 |
+| Ensemble, Viterbi and Dissent rule (leaderboard) | 0.6345 |

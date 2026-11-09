@@ -93,7 +93,7 @@ T4 per run).
 | #05 Arch 2 full fine-tuning | 0.4031 |
 | #06 Arch 4 LoRMA+ (F1B) | 0.4085 |
 | #22 Arch 2 student G4 | 0.4211 |
-| #26 9 runs, logit average (best) | 0.4450 |
+| #26 9 runs, logit average (leaderboard) | 0.4450 |
 
 The other single-run submissions come from the same `train.py` runs. The other logit average
 ensembles on the leaderboard come from `ensemble.py` with a different `MEMBERS` list.
