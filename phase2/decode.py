@@ -67,7 +67,7 @@ def decode_doc(doc, logp):
     return clean
 
 
-def propagate(text, spans, min_len=4, min_conf=0.0, relabel=True, ci_labels=()):
+def propagate(text, spans, min_len=4, min_conf=0.0, relabel=True):
     # one label per string in a document, and every free word-bounded occurrence gets tagged
     votes = defaultdict(Counter)
     count = Counter()
@@ -88,10 +88,7 @@ def propagate(text, spans, min_len=4, min_conf=0.0, relabel=True, ci_labels=()):
     for t in sorted(label_of, key=len, reverse=True):
         if len(t) < min_len or sum(votes[t].values()) / count[t] < min_conf:
             continue
-        flags = 0
-        if label_of[t] in ci_labels:
-            flags = re.IGNORECASE
-        for m in re.finditer(r"(?<!\w)" + re.escape(t) + r"(?!\w)", text, flags):
+        for m in re.finditer(r"(?<!\w)" + re.escape(t) + r"(?!\w)", text):
             if not taken[m.start():m.end()].any():
                 out.append((m.start(), m.end(), label_of[t], 0.0))
                 taken[m.start():m.end()] = True

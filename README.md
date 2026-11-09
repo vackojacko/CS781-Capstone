@@ -6,11 +6,11 @@ This folder has the code for my best models in all seven capstone phases. I trai
 
 | Phase | Task | Metric | Best score | Rank | Folder |
 |---|---|---|---|---|---|
-| 1 | Legal LM pretraining | BERTScore F1 | 0.8688 | 2 | `phase1` |
-| 2 | Legal NER | strict macro-F1 | 0.6872 | 3 | `phase2` |
+| 1 | Legal LM pretraining | BERTScore F1 | 0.8402 | 17 | `phase1` |
+| 2 | Legal NER | strict macro-F1 | 0.6503 | 7 | `phase2` |
 | 3 | Rhetorical role prediction | macro-F1 | 0.6345 | 6 | `phase3` |
 | 4 | Court judgment prediction | macro-F1 | 0.8154 | 11 | `phase4` |
-| 5 | Legal statute identification | macro-F1 | 0.4727 | 2 | `phase5` |
+| 5 | Legal statute identification | macro-F1 | 0.4450 | 8 | `phase5` |
 | 6 | Summarization | BERTScore F1 | 0.8527 | 13 | `phase6` |
 | 7 | Prior case retrieval | micro-F1@7 | 0.4832 | 13 | `phase7` |
 

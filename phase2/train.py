@@ -6,6 +6,7 @@ import os
 import random
 import sys
 import time
+import zipfile
 
 import numpy as np
 import torch
@@ -14,12 +15,10 @@ import torch.nn.functional as F
 import model as M
 from decode import decode_doc, propagate, repair_spans, strict_scores
 from lorma import apply_method
-from predict import write_submission
 from preprocess import (DATA_DIR, IGNORE, LABELS, N_TAGS, class_weights, encode_docs, load_split, load_tokenizer,
                         training_windows)
 
 OUT_DIR = "runs"
-TAPT_DIR = "runs/arch4_tapt"
 MNTP_DIRS = {0: "runs/arch4_mntp_s0", 1: "runs/arch4_mntp_s1"}
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -47,15 +46,12 @@ def run_config(arch, method, epochs, lr_body, batch, header=128, seed=0, bidir=F
                 bidir=bidir, model_dir=model_dir, run_cv=run_cv, repair=repair)
 
 
-# the runs behind the phase 2 submissions and the final ensemble
+# the runs behind the phase 2 submissions
 RUNS = {
     "arch1_lorma_h128": run_config("arch1", "lorma", 10, 5e-4, 4),
     "arch2_full_h128": run_config("arch2", "full", 8, 1e-4, 8, repair=False),
-    "arch2_full_h256_s1": run_config("arch2", "full", 8, 1e-4, 8, header=256, seed=1, repair=False),
     "arch3_full_h128": run_config("arch3", "full", 8, 1e-4, 8, repair=False),
     "arch4_full_h128": run_config("arch4", "full", 8, 1e-4, 4, repair=False),
-    "arch4_full_h128_s1": run_config("arch4", "full", 8, 1e-4, 4, seed=1),
-    "arch4_tapt_full_h128": run_config("arch4", "full", 8, 1e-4, 4, model_dir=TAPT_DIR),
     "arch4_mntp_lora_h128_bidir": run_config("arch4", "lora", 10, 5e-4, 4, bidir=True, model_dir=MNTP_DIRS[0]),
     "arch4_mntp_lora_h128_s1_bidir": run_config("arch4", "lora", 6, 5e-4, 4, seed=1, bidir=True,
                                                 model_dir=MNTP_DIRS[1], run_cv=False),
@@ -251,6 +247,24 @@ def predict_test(test_docs, test_logp, prop_kw, repair):
             spans = repair_spans(doc["text"], spans)
         pred[d] = spans
     return pred
+
+
+def write_submission(pred, texts, path):
+    sub = {}
+    for d, text in texts.items():
+        rows = []
+        for sp in pred.get(d, []):
+            s, e, lab = sp[0], sp[1], sp[2]
+            assert lab in LABELS and 0 <= s < e <= len(text), (d, s, e, lab)
+            rows.append([int(s), int(e), lab])
+        sub[d] = sorted(rows)
+    assert set(sub) == set(texts)
+    with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED) as z:
+        z.writestr("prediction.json", json.dumps(sub, ensure_ascii=False))
+    n = 0
+    for v in sub.values():
+        n += len(v)
+    return n
 
 
 def main(tag, cfg, teacher=None, kd_alpha=0.5, kd_temp=2.0):

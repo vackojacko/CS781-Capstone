@@ -1,4 +1,4 @@
-# Batched KV-cached sampling for Arch 2 and MBR (ROUGE-1/2 consensus) over 16 samples per prompt
+# Batched KV-cached sampling for Arch 2 and MBR (ROUGE-1/2 agreement) over 16 samples per prompt
 import os
 import json
 import time
