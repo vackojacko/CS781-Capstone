@@ -1,4 +1,4 @@
-# backbone adaptation of arch 4 on phase 1 judgments, tokenized with the NER piece tokenizer
+# continued pretraining and masked next-token training of arch 4
 # python adapt.py tapt      continued causal LM pretraining (start: phase 1 arch 4)
 # python adapt.py mntp 0    bidirectional adaptation with masked next-token prediction, LLM2Vec style (start: tapt model)
 import json

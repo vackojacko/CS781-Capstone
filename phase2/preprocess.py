@@ -218,7 +218,6 @@ def class_weights(docs, power=0.5, cap=10.0):
 
 
 def phase2_keys(texts):
-    # used to skip phase 1 judgments that are also phase 2 train or test documents
     phase2 = []
     for t in texts:
         if t:

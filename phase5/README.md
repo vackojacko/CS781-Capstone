@@ -97,8 +97,3 @@ T4 per run).
 
 The other single-run submissions come from the same `train.py` runs. The other logit average
 ensembles on the leaderboard come from `ensemble.py` with a different `MEMBERS` list.
-
-## Notes
-
-28% of test cases also appear in the Phase 1 pretraining text with the section numbers visible. I did
-not use that text.

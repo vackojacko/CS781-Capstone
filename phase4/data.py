@@ -45,7 +45,6 @@ def load_split(path, split):
             text = align_train(r["text"])
         else:
             text = clean_eval(r["text"])
-        # test labels are never read
         if split == "test":
             label = -1
         else:

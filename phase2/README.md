@@ -9,7 +9,7 @@ The input is a long Indian court judgment. The output is every entity in it, giv
 My final system is one model: my Phase 1 Arch 4 made bidirectional, with LoRA and a small tagging head.
 
 1. I split each word into letter, digit and punctuation pieces before my Phase 1 BPE, so that entity edges line up with token edges.
-2. To make Arch 4 bidirectional, I first trained it more on Phase 1 judgments (1500 updates of next token prediction). Then I removed the causal mask and trained it for 800 updates to predict masked tokens from the output one position before them. Both steps are in `adapt.py`.
+2. To make Arch 4 bidirectional, I first continued its pretraining for 1500 updates of next token prediction. Then I removed the causal mask and trained it for 800 updates to predict masked tokens from the output one position before them. Both steps are in `adapt.py`.
 3. I then trained LoRA layers (rank 16) and a tagging head that gives every token a BIOES tag. Long documents are read in overlapping windows, and the start of the document (parties, counsel, judges) is added to every window.
 4. A Viterbi decoder keeps only valid tag sequences.
 5. If a string of at least 6 characters is tagged with an average confidence of at least 0.5, its other copies in the same document get the same label, and every copy of that string takes the label with the highest total confidence.

@@ -15,7 +15,6 @@ cases.
 - Train is 59/41 but dev and test are balanced, so I pick the decision threshold that gives the best dev
   macro-F1.
 - My best submission averages three Arch 4 LoRMA+ runs (E1, E10, E11). It scored 0.8154 on Codabench.
-- I do not use the test labels or the Phase 1 pretraining text of the test cases.
 
 ## Models I tried
 
