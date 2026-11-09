@@ -10,7 +10,7 @@ cases.
 
 - I split each case into chunks of 1024 tokens, counted back from the end, because the decision is
   usually discussed near the end.
-- I fine-tune a Phase 1 model to label single chunks, using one of the last 2 chunks of each training case.
+- I fine-tune a Phase 1 model to label single chunks, using one of the last 2 or 3 chunks of each training case.
 - I then freeze the model and train a small BiLSTM (my Assignment 2 LSTM) over the last 8 chunks of a case.
 - Train is 59/41 but dev and test are balanced, so I pick the decision threshold that gives the best dev
   macro-F1.

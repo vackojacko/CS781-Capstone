@@ -34,6 +34,6 @@ Arch 4 is a decoder, so each token can only see the tokens before it. For the la
 ## Setup
 
 - Python 3 with the packages in `requirements.txt`: torch, numpy, scipy, scikit-learn, peft, ijson, pyahocorasick, bert_score, matplotlib.
-- I trained on Kaggle T4 GPUs. The TF-IDF parts of Phases 5 to 7 run on CPU.
+- I trained on Kaggle T4 GPUs. The TF-IDF parts of Phases 6 and 7 run on CPU.
 - Phases 2 to 7 load the Phase 1 model code from `phase1`. The tokenizer is `phase1/legal_bpe_16384.json`.
 - Data and model weights are not included. Each script sets its paths as constants at the top.

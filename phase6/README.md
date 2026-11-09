@@ -13,13 +13,13 @@ The input is one Indian court judgment and the output is a short summary of it, 
 - I take the top sentences until the summary has 525 words. I skip sentences shorter than 6 words or longer than 90 words.
 - Leaderboard score: 0.8527 BERTScore F1 (ROUGE-1 0.530, ROUGE-L 0.280).
 
-Each sentence scoring model reads the judgment with a frozen Phase 1 model and gives every sentence a probability of being in the summary. The training labels come from a greedy search that picks the sentences that best match the real headnote in ROUGE.
+Each sentence scoring model reads the judgment with a fine-tuned Phase 1 model and gives every sentence a probability of being in the summary. The training labels come from a greedy search that picks the sentences that best match the start of the real headnote in ROUGE.
 
 ## Models I tried
 
 | Phase 1 model | Technique | Codabench |
 |---|---|---|
-| Arch 2 | LoRMA | 0.8422 |
+| Arch 2 | LoRMA+ | 0.8422 |
 | Arch 4 (bidirectional) | LoRA | 0.8426 |
 | Arch 3 (encoder) | Pfeiffer adapter | 0.8394 |
 | Arch 1 | Houlsby adapters | 0.8381 |
@@ -38,7 +38,7 @@ The abstractive model often mixed up facts, so I kept the extractive system.
 | `data.py` | Splits judgments into sentences, makes training labels and the dev set |
 | `oracle.py` | ROUGE scores and the greedy label search |
 | `model.py` | Sentence scoring model on top of a Phase 1 model |
-| `peft_methods.py` | LoRMA, LoRA, Pfeiffer and Houlsby |
+| `peft_methods.py` | LoRMA+, LoRA, Pfeiffer and Houlsby |
 | `train.py` | Trains one sentence scoring model (S1 to S5) |
 | `distill.py` | Trains the six distilled students (k1 to k6) |
 | `centrality.py` | The word score |
@@ -82,7 +82,7 @@ Dependencies: Python 3, torch, numpy, scikit-learn, peft, bert_score. Training n
 
 | Submission | Codabench |
 |---|---|
-| 02: Arch 2 + LoRMA (S1) | 0.8422 |
+| 02: Arch 2 + LoRMA+ (S1) | 0.8422 |
 | 08: Arch 4 + LoRA (S2) | 0.8426 |
 | 03: Arch 3 + Pfeiffer (S3) | 0.8394 |
 | 04: Arch 1 + Houlsby (S4) | 0.8381 |

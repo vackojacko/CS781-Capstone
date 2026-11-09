@@ -25,9 +25,9 @@ KD_T = 2.0
 RUNS = {
     "rr1": ("arch4", "lora", True, B.ARCH4_MNTP_DIR, 6, 5e-4, None),  # Arch 4 bidirectional + LoRA, Codabench 0.5139
     "x2": ("arch4", "lora", True, B.ARCH4_MNTP_P3_DIR, 15, 5e-4, 2),  # Arch 4 longer adaptation + LoRA, 0.5129
-    "rr2b": ("arch4", "lorma", True, B.ARCH4_MNTP_DIR, 6, 5e-4, None),  # Arch 4 bidirectional + LoRMA, 0.4739
+    "rr2b": ("arch4", "lorma", True, B.ARCH4_MNTP_DIR, 6, 5e-4, None),  # Arch 4 bidirectional + LoRMA+, 0.4739
     "rr3": ("arch3", "ia3", False, os.path.join(B.KIT_DIR, "arch3"), 6, 3e-3, None),  # Arch 3 + IA3, 0.4479
-    "rr2": ("arch1", "lorma", False, os.path.join(B.KIT_DIR, "arch1"), 6, 5e-4, None),  # Arch 1 + LoRMA, 0.1103
+    "rr2": ("arch1", "lorma", False, os.path.join(B.KIT_DIR, "arch1"), 6, 5e-4, None),  # Arch 1 + LoRMA+, 0.1103
 }
 
 

@@ -23,11 +23,11 @@ I trained my Phase 1 models as dense retrievers. Each one turns a judgment into 
 |---|---|---|---|
 | Arch 3 (encoder) | partial fine-tuning (top 4 blocks) | 0.145 | not scored |
 | Arch 2 | IA3 | 0.055 | 0.4719 |
-| Arch 2 | LoRMA | 0.018 | not scored |
-| Arch 2 | LoRMA, distilled from TF-IDF scores | 0.010 | not scored |
+| Arch 2 | LoRMA+ | 0.018 | not scored |
+| Arch 2 | LoRMA+, distilled from TF-IDF scores | 0.010 | not scored |
 | Arch 4 (bidirectional) | QLoRA | not logged | 0.4725 and 0.4802 |
-| Arch 4 (bidirectional) | LoRMA | 0.104 | not scored |
-| Arch 1 | LoRMA | 0.006 | not scored |
+| Arch 4 (bidirectional) | LoRMA+ | 0.104 | not scored |
+| Arch 1 | LoRMA+ | 0.006 | not scored |
 
 For comparison, TF-IDF on 4 to 6 word phrases alone gets 0.447 on dev.
 
@@ -43,7 +43,7 @@ For comparison, TF-IDF on 4 to 6 word phrases alone gets 0.447 on dev.
 | `tokenizer.py` | My Phase 1 BPE tokenizer |
 | `prep_dense.py` | Tokenizes the data for the dense runs |
 | `dense_model.py` | Loads a Phase 1 model and makes judgment vectors |
-| `peft_methods.py` | LoRMA, QLoRA, IA3 and partial fine-tuning |
+| `peft_methods.py` | LoRMA+, QLoRA, IA3 and partial fine-tuning |
 | `distill.py` | The distillation loss |
 | `train_dense.py` | Trains one dense run |
 
@@ -79,7 +79,7 @@ Phase 7 has 14 scored submissions. The defaults are `W_WORDS = 0.5` and `W_VOTES
 
 | Submission | Codabench |
 |---|---|
-| 1: phrases and citation sentences with co-citation (`W_WORDS = 0`, `W_VOTES = 0`) | 0.4643 |
+| 1: phrases and citation sentences with co-citation and CSLS (`W_WORDS = 0`, `W_VOTES = 0`) | 0.4643 |
 | 2: 1 plus neighbour votes (`W_WORDS = 0`) | 0.4719 |
 | 6: 2 plus word view at 0.5 | 0.4826 |
 | 8: 2 plus Arch 2 IA3 dense at 0.25 (`W_WORDS = 0`) | 0.4719 |
