@@ -12,8 +12,8 @@ from rerank import final_score
 DATA_DIR = "data"
 OUT_DIR = "submissions"
 VOTE_K = 5
-DENSE_FILE = None
-W_DENSE = 0.0
+DENSE_FILE = "dense_runs/d2b_arch4_qlora/scores.npz"
+W_DENSE = 0.25
 
 
 def build_signals(split, graph):

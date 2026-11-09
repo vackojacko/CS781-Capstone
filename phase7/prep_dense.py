@@ -8,7 +8,7 @@ import lexical
 from tokenizer import PieceTokenizer, encode_ids
 
 DATA_DIR = "data"
-TOKENIZER_PATH = "legal_bpe_16384.json"
+TOKENIZER_PATH = "../phase1/legal_bpe_16384.json"
 PREP_FILE = "p7_data.pkl.gz"
 
 

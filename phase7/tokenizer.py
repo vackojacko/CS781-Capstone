@@ -1,7 +1,7 @@
 import json
 import re
 
-TOKENIZER_PATH = "legal_bpe_16384.json"
+TOKENIZER_PATH = "../phase1/legal_bpe_16384.json"
 PIECE_RE = re.compile(r"[^\W\d_]+|\d+|_|[^\w\s]")
 MAX_TOKENS = 20000
 EOW_ID = 260

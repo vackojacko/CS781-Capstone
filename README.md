@@ -11,8 +11,8 @@ This folder has the code for my best models in all seven capstone phases. I trai
 | 3 | Rhetorical role prediction | macro-F1 | 0.6345 | 6 | `phase3` |
 | 4 | Court judgment prediction | macro-F1 | 0.8154 | 11 | `phase4` |
 | 5 | Legal statute identification | macro-F1 | 0.4450 | 8 | `phase5` |
-| 6 | Summarization | BERTScore F1 | 0.8527 | 13 | `phase6` |
-| 7 | Prior case retrieval | micro-F1@7 | 0.4832 | 13 | `phase7` |
+| 6 | Summarization | BERTScore F1 | 0.8527 | 14 | `phase6` |
+| 7 | Prior case retrieval | micro-F1@7 | 0.4802 | 14 | `phase7` |
 
 Each phase folder has its own README with the task, my final system, the models I tried, the files, how to run them, and the Codabench submissions they reproduce.
 

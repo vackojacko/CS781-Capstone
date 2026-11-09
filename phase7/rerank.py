@@ -3,7 +3,7 @@ import numpy as np
 from lexical import csls, zscore
 
 K_CSLS = 4
-W_WORDS = 0.75
+W_WORDS = 0.5
 W_VOTES = 4.0
 
 
