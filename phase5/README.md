@@ -6,8 +6,8 @@ The input is the facts of an Indian court case, with names and statute citations
 the set of Indian Penal Code sections that apply, out of 100 labels (ILSI). The metric is macro-F1 over the 100 labels. A submission is a zip with
 `prediction.json`, a list of `{"id": ..., "pred": [label ids]}`.
 
-My best submission is #93 with a Codabench score of 0.4732. The leaderboard shows #76 (0.4727) as the
-selected entry.
+My leaderboard entry, which my report uses, is #76 (0.4727, rank 2). #75 has the same score and is
+reproduced by this code. My highest-scoring submission is #93 (0.4732), which is the code's default.
 
 ## Data
 
