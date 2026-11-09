@@ -12,7 +12,7 @@ Phase 1 trains four language models. Phases 2 to 7 fine-tune all four for one le
 | 2 | Legal NER | strict macro-F1 | 0.6872 | 3 | `phase2` |
 | 3 | Rhetorical role prediction | macro-F1 | 0.6345 | 6 | `phase3` |
 | 4 | Court judgment prediction | macro-F1 | 0.8154 | 11 | `phase4` |
-| 5 | Legal statute identification | macro-F1 | 0.4732 | 1 | `phase5` |
+| 5 | Legal statute identification | macro-F1 | 0.4732 | 2 | `phase5` |
 | 6 | Summarization | BERTScore F1 | 0.8527 | 13 | `phase6` |
 | 7 | Prior case retrieval | micro-F1@7 | 0.4832 | 13 | `phase7` |
 
