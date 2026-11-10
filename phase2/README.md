@@ -31,6 +31,14 @@ Leaderboard score: 0.6503 (seed 1).
 
 I wrote the LoRA and LoRMA+ layers myself (rank 16). The distilled Arch 2 learns half from the gold tags and half from the Arch 4 predictions.
 
+## Training setup
+
+- Final model: bidirectional Arch 4 with LoRA (rank 16, alpha 16, dropout 0.05) on every linear layer, and a linear tagging head over 49 BIOES tags.
+- Backbone learning rate 5e-4, batch 4, 6 epochs, dropout 0.1, label smoothing 0.1.
+- Windows of 1024 tokens: the first 128 tokens of the document, a separator, then the text. Rare label windows are used twice and rare tags get larger loss weights.
+- I chose settings with two-fold cross validation on the 70 training documents, then trained the final model on both folds.
+- All runs were on one Kaggle T4 GPU with fp16 mixed precision. Task runs use AdamW with weight decay 0.01, gradient clipping 1.0, a linear warmup then linear decay, and learning rate 1e-3 for the task head.
+
 ## Files
 
 | File | What it does |

@@ -26,6 +26,14 @@ The input is a legal judgment split into sentences. The output gives each senten
 
 The bidirectional Arch 4 comes from Phase 2. For x2 it was adapted for longer, with the Phase 3 training text added. For the distilled Arch 2, the teacher is the average of rr1 and x2, and the student learns half from the gold labels and half from the teacher.
 
+## Training setup
+
+- Best single model: Arch 2 with LoRA, distilled from two Arch 4 runs (loss 0.5 cross entropy plus 0.5 KL at temperature 2).
+- Learning rate 5e-4, up to 64 sentences per training piece, 6 epochs, backbone dropout 0.1.
+- Each sentence is cut to 128 tokens, sentences are packed into windows, and each sentence vector is the mean of its token states.
+- Decoding: Viterbi with label transitions counted on the training documents.
+- All runs were on one Kaggle T4 GPU with fp16 mixed precision. Task runs use AdamW with weight decay 0.01, gradient clipping 1.0, a linear warmup then linear decay, and learning rate 1e-3 for the task head.
+
 ## Files
 
 | File | What it does |

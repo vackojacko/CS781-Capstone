@@ -30,6 +30,13 @@ For distillation, each student model learns half from the training labels and ha
 
 The abstractive model often mixed up facts, so I kept the extractive system.
 
+## Training setup
+
+- Best single model: bidirectional Arch 4 with LoRA, distilled, learning rate 3e-4, 8 judgments per update, 2 epochs, dropout 0.1.
+- Training labels are the sentences that best match the start of the real headnote (greedy ROUGE).
+- Summaries take the highest scoring sentences up to 525 words and keep them in document order.
+- All runs were on one Kaggle T4 GPU with fp16 mixed precision. Task runs use AdamW with weight decay 0.01, gradient clipping 1.0, a linear warmup then linear decay, and learning rate 1e-3 for the task head.
+
 ## Files
 
 | File | What it does |

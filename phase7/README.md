@@ -31,6 +31,13 @@ I trained my Phase 1 models as dense retrievers. Each one turns a judgment into 
 
 For comparison, TF-IDF on 4 to 6 word phrases alone gets 0.447 on dev.
 
+## Training setup
+
+- The lexical part needs no training: TF-IDF (scikit-learn) over 4 to 6 word phrases, on CPU.
+- Dense part in the final system: bidirectional Arch 4 with QLoRA (4-bit base, rank 16, alpha 32), trained with InfoNCE (scale 20) against TF-IDF hard negatives, learning rate 3e-4, 2 epochs, 1 chunk and 2 negatives per query (larger settings ran out of memory), 4 queries per update.
+- Weights for the final score (word view 0.5, votes 4, dense 0.25) were chosen on dev.
+- All runs were on one Kaggle T4 GPU with fp16 mixed precision. Task runs use AdamW with weight decay 0.01, gradient clipping 1.0, a linear warmup then linear decay, and learning rate 1e-3 for the task head.
+
 ## Files
 
 | File | What it does |

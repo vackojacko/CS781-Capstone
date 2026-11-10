@@ -32,6 +32,13 @@ bidirectional version from Phase 2. The score is the best single run for each mo
 
 The Arch 2 student keeps 95% of the teacher score (0.8048) with 18% of the parameters.
 
+## Training setup
+
+- Best model: bidirectional Arch 4 with LoRMA+, learning rate 3e-4, 32 chunks per update, 2 epochs, no dropout.
+- Chunks of 1024 tokens counted back from the end of the judgment; the second stage BiLSTM reads the last 8 chunks.
+- The decision threshold is chosen on dev, because train is 59/41 and dev and test are balanced.
+- All runs were on one Kaggle T4 GPU with fp16 mixed precision. Task runs use AdamW with weight decay 0.01, gradient clipping 1.0, a linear warmup then linear decay, and learning rate 1e-3 for the task head.
+
 ## Files
 
 | File | What it does |

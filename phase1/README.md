@@ -28,6 +28,33 @@ Leaderboard score: 0.8402.
 
 All models are written by hand in PyTorch, starting from my Assignment 3 code. On my held out prompts, MBR scored higher than single samples, and MBR over 16 samples scored higher than over 4 or 8.
 
+## Architectures
+
+All four models are written by hand in PyTorch and share one layout: token embedding, positions, N blocks of (norm, attention, norm, feed-forward) with residual connections, a final norm and an LM head tied to the embedding. Context 1024, vocabulary 16,384.
+
+| | Arch 1 | Arch 2 | Arch 3 | Arch 4 |
+|---|---|---|---|---|
+| Type | GPT-2 style decoder | LLaMA style decoder | encoder-decoder | deep decoder |
+| Layers x width | 12 x 768 | 12 x 640 | 10 encoder + 4 decoder, 640 | 16 x 640 |
+| Attention | 12 heads | grouped query, 10 query and 2 key/value heads | 10 heads, plus cross attention | latent attention (latent 320, separate 32-dim RoPE part), QK norm, sigmoid output gate |
+| Positions | sinusoidal | RoPE | RoPE | RoPE |
+| Norm | LayerNorm | RMSNorm | RMSNorm | RMSNorm |
+| Feed-forward | GELU, 3072 | SwiGLU, 1706 | SwiGLU, 1712 | SwiGLU, 1712 |
+| Extra | | | inputs up to 704 tokens, outputs up to 320 | hashed bigram and trigram memory at layers 2 and 8 (42.9M) |
+| Parameters | 97.6M | 61.6M | 86.1M | 139.1M |
+
+Arch 3 is trained 80% on continuation and 20% on T5 span corruption, with the last 10% of training on 512 word prompts and 128 word targets. The Arch 4 memory hashes the last 2 and 3 tokens into learned tables (4 hashes each), a gate compares the looked up vector with the hidden state, and the result is added to the residual stream. Its value projection starts at zero, so it has no effect at the start of training.
+
+## Training setup
+
+- Data: the four official sources, streamed, deduplicated, documents under 50 words dropped, 5% of documents held out, and the same token budget for each source.
+- AdamW with betas (0.9, 0.95), weight decay 0.1 on matrices only, gradient clipping 1.0, no dropout.
+- 32 sequences of 1024 tokens per update (batch 4, accumulation 8), fp16 on one Kaggle T4.
+- Arch 1 and 2: peak learning rate 6e-4, 500 warmup updates, cosine decay to 6e-5. Arch 2 trained on 300M tokens (about 9,150 updates), Arch 1 on 735M.
+- Arch 3: the same optimizer, 695M encoder and 275M decoder tokens.
+- Arch 4: warmup, then a constant learning rate until the validation loss stops improving, then decay. The memory tables have their own group with 5x the learning rate and no weight decay. 361M tokens.
+- Generation for the final system: `T35` sampling, 16 samples per prompt, MBR over the samples that reach 128 words.
+
 ## Files
 
 | File | What it does |

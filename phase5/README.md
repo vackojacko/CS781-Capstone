@@ -41,6 +41,13 @@ G4 is my best single model. The teacher F1 (Arch 4 LoRMA+) scored 0.3942, so the
 than their teacher. Averaging logits worked a little better than averaging probabilities (0.4450 against
 0.4432 for the same 9 runs). Adding the 6 epoch full fine-tuning run and the 8 chunk run lowered dev.
 
+## Training setup
+
+- Best single model: Arch 2 with its top 8 blocks trained and distilled from Arch 4, learning rate 5e-5, 16 cases per update, 6 epochs, no dropout.
+- Each case is read as up to four 1024-token chunks. Label attention gives one score per statute.
+- Thresholds: one per statute, tuned on dev and pulled toward a shared value, and every case gets at least one statute.
+- All runs were on one Kaggle T4 GPU with fp16 mixed precision. Task runs use AdamW with weight decay 0.01, gradient clipping 1.0, a linear warmup then linear decay, and learning rate 1e-3 for the task head.
+
 ## Files
 
 | File | What it does |
