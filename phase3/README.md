@@ -39,6 +39,7 @@ The bidirectional Arch 4 comes from Phase 2. For x2 it was adapted for longer, w
 | `decode.py` | CRF prediction, Viterbi with counted transitions, macro-F1 |
 | `rules.py` | Dissent rule |
 | `predict.py` | the final ensemble and the best submission |
+| `experiments/` | code for my other submissions, listed under Other submissions below |
 
 ## How to run
 
@@ -77,3 +78,55 @@ The single model rows were scored before I added the Dissent rule, so rerunning 
 | Arch 4, LoRA (rr1) | 0.5139 |
 | Distilled Arch 2 | 0.5354 |
 | Ensemble, Viterbi and Dissent rule (leaderboard) | 0.6345 |
+
+## Other submissions
+
+These are my other Phase 3 submissions. The scripts in `experiments/` run from this folder after the five commands above, and the last column says which extra run a row needs first. `python -m experiments.ensembles NAME` writes `runs/experiments/NAME.zip`, and `python -m experiments.ensembles` with no name writes all of them.
+
+| Submission | Codabench | How to reproduce |
+|---|---|---|
+| Arch 4 + LoRA (rr1), backbone frozen for the first 2 epochs | 0.4883 | `python -m experiments.extra_runs rr1_frozen` |
+| Average of rr1 and x2 | 0.5245 | `python -m experiments.ensembles submission_ens_rr1_x2` |
+| Average of rr1, x2 and the frozen-start rr1 | 0.5057 | after `rr1_frozen`: `python -m experiments.ensembles submission_ens_rr1_x2_rerun` |
+| Average of rr1 and distilled Arch 2 | 0.5258 | `python -m experiments.ensembles submission_ens_rr1_kd` |
+| Average of rr1, x2 and distilled Arch 2 | 0.5310 | `python -m experiments.ensembles submission_ens_rr1_x2_kd` |
+| rr1 + x2, ArgumentPetitioner +0.3 in log probability | 0.5111 | `python -m experiments.ensembles bias_argpet_up` |
+| rr1 + x2, RulingByLowerCourt +0.5 | 0.5237 | `python -m experiments.ensembles bias_lowercourt_up` |
+| rr1 + x2, None +1.5 | 0.5274 | `python -m experiments.ensembles bias_none_up` |
+| rr1 + x2, RatioOfTheDecision -0.5 | 0.5189 | `python -m experiments.ensembles bias_ratio_down` |
+| Distilled Arch 2 with overlapping windows, CRF Viterbi | 0.5445 | `python -m experiments.extra_runs kd_overlap` |
+| Distilled Arch 2 with overlapping windows (kdov), argmax | 0.5444 | `python -m experiments.ensembles 01_kdov_argmax` |
+| 0.7 kdov + 0.3 rr1 | 0.5425 | `python -m experiments.ensembles 02_kdov7_rr1_3` |
+| 0.6 kdov + 0.2 rr1 + 0.2 x2 | 0.5381 | `python -m experiments.ensembles 07_kdov6_rr1_2_x2_2` |
+| 0.7 kdov + 0.3 rr1, geometric mean | 0.5432 | `python -m experiments.ensembles 13_geo_kdov7_rr1_3` |
+| 0.6 kdov + 0.2 rr1 + 0.2 x2, Viterbi with counted transitions (0.3) | 0.5524 | `python -m experiments.ensembles 16_kdov6_rr1_2_x2_2_transvit03` |
+| kdov, prior correction + transition Viterbi (0.5) | 0.5507 | `python -m experiments.ensembles 18_kdov_em_transvit05` |
+| 0.5 kdov + 0.5 rr1, prior correction | 0.5317 | `python -m experiments.ensembles 19_kdov5_rr1_5_em` |
+| 0.6 kdov + rr1, x2, rr2b (0.133 each), transitions 0.4 | 0.5460 | `python -m experiments.ensembles 1_kdov6_rr1_x2_lorma_transvit04` |
+| 0.7 kdov + 0.15 rr1 + 0.15 x2, transitions 0.5 | 0.5479 | `python -m experiments.ensembles 2_kdov7_rr1_15_x2_15_transvit05` |
+| 0.5 kdov + rr1, x2, rr2b (0.167 each), transitions 0.2 | 0.5469 | `python -m experiments.ensembles 3_kdov5_rr1_x2_lorma_transvit02` |
+| 0.6 kdov + 0.2 rr1 + 0.2 x2, transitions 0.4 | 0.5506 | `python -m experiments.ensembles 4_kdov6_rr1_2_x2_2_transvit04` |
+| 0.6 kdov + 0.2 rr1 + 0.2 x2, transitions 0.2 | 0.5480 | `python -m experiments.ensembles 5_kdov6_rr1_2_x2_2_transvit02` |
+| 0.5 kdov + 0.25 rr1 + 0.25 x2, transitions 0.3 | 0.5522 | `python -m experiments.ensembles 6_kdov5_rr1_25_x2_25_transvit03` |
+| b4: Arch 2, round-2 teacher, contrastive + prototype losses, train + dev | 0.5010 | `python -m experiments.extra_runs b4`, then `python -m experiments.ensembles 1_b4_transvit03` |
+| 0.6 b4 + 0.2 rr1 + 0.2 x2 | 0.5001 | after `b4`: `python -m experiments.ensembles 3_b4_6_rr1_2_x2_2_transvit03` |
+| 0.3 b4 + 0.3 kdov + 0.2 rr1 + 0.2 x2 | 0.5165 | after `b4`: `python -m experiments.ensembles 4_b4_3_kdov_3_rr1_2_x2_2_transvit03` |
+| 0.5 b4 + 0.5 kdov | 0.5276 | after `b4`: `python -m experiments.ensembles 5_b4_5_kdov_5_transvit03` |
+| 0.6 kdov + 0.2 rr1 + 0.2 x2, smoothed inside shift-head blocks (0.9) | 0.5437 | after `kd_overlap`: `python -m experiments.ensembles 1_ens_shiftsmooth09` |
+| Same file submitted again | 0.5437 | same as the row above |
+| Same, smoothing 0.7 | 0.5525 | after `kd_overlap`: `python -m experiments.ensembles 2_ens_shiftsmooth07` |
+| Same, hard blocks at shift probability 0.2 | 0.5203 | after `kd_overlap`: `python -m experiments.ensembles 3_ens_shiftblocks02` |
+| b3: Arch 2, round-2 teacher, contrastive + prototype losses, kNN | 0.5244 | `python -m experiments.extra_runs b3` (writes `runs/submission_b3.zip`) |
+| 0.4 b3 + 0.3 kdov + 0.15 rr1 + 0.15 x2 | 0.5278 | after `b3`: `python -m experiments.ensembles 1_b340_kdov30_rr115_x215_transvit03` |
+| 0.3 b3 + 0.3 kdov + 0.2 rr1 + 0.2 x2 | 0.5282 | after `b3`: `python -m experiments.ensembles 2_b330_kdov30_rr120_x220_transvit03` |
+| 0.6 kdov + 0.2 rr1 + 0.2 x2, Dissent allowed, no rule | 0.5972 | `python -m experiments.ensembles best_with_dissent_allowed` |
+| Half the best trio, half the six big-run models, Dissent rule | 0.6321 | `python -m experiments.extra_runs big`, then `python -m experiments.ensembles 1_half_oldbest_half_new6_transvit_dissent` |
+| 11 runs with equal weights, Dissent rule | 0.6286 | after `big`, `b3`: `python -m experiments.ensembles 2_all11_equal_transvit_dissent` |
+| Six big-run models + kdov + rr1 + x2, equal weights, Dissent rule | 0.6295 | after `big`: `python -m experiments.ensembles 3_new6_kdov_rr1_x2_transvit_dissent` |
+| Separate blends for CL (picked on CL dev) and IT (0.3 kdov + 0.7 big-run models) | 0.6302 | after `big`: `python -m experiments.ensembles 5_perdomain_blend` |
+| Distilled Arch 2 refit on train + dev, alone | 0.6068 | `python -m experiments.extra_runs refit`, then `python -m experiments.ensembles 4_r1_alone` |
+| Best trio, transition matrices counted per domain | 0.6300 | `python -m experiments.ensembles old_trio_perdomain_cl03` |
+| Best trio + 0.25 fixed-class-weight Arch 2 | 0.6340 | `python -m experiments.extra_runs fixed_weights`, then `python -m experiments.ensembles 1_trio_plus_fixedweights` |
+| Fixed-class-weight Arch 2 in place of kdov | 0.6094 | after `fixed_weights`: `python -m experiments.ensembles 2_fixedweights_replaces_kd` |
+| kdov and fixed-class-weight Arch 2 equal, + rr1 + x2 | 0.6254 | after `fixed_weights`: `python -m experiments.ensembles 3_kd_fixedweights_rr1_x2_equal_arch2` |
+| Best trio + fixed-class-weight Arch 2 + six big-run models | 0.6295 | after `fixed_weights`, `big`: `python -m experiments.ensembles 4_trio_fixedweights_new6` |

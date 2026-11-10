@@ -46,6 +46,7 @@ For comparison, TF-IDF on 4 to 6 word phrases alone gets 0.447 on dev.
 | `peft_methods.py` | LoRMA+, QLoRA, IA3 and partial fine-tuning |
 | `distill.py` | The distillation loss |
 | `train_dense.py` | Trains one dense run |
+| `experiments/` | code for submissions 3, 4, 5, 7 and 12 in the table below |
 
 ## How to run
 
@@ -81,10 +82,17 @@ Phase 7 has 14 scored submissions. The defaults are `W_WORDS = 0.5` and `W_VOTES
 |---|---|
 | 1: phrases and citation sentences with co-citation and CSLS (`W_WORDS = 0`, `W_VOTES = 0`) | 0.4643 |
 | 2: 1 plus neighbour votes (`W_WORDS = 0`) | 0.4719 |
+| 3: no CSLS, phrases plus 0.5 citation sentences, 0.5 merged citation sentences, co-citation and 0.5 times the mean of Arch 3 partial and Arch 2 IA3 dense (`python -m experiments.no_csls 3`, needs `d3_arch3_partial` and `d4_arch2_ia3` runs) | 0.4572 |
+| 4: no CSLS, phrases and citation sentences with co-citation (`python -m experiments.no_csls 4`) | 0.4572 |
+| 5: 6 plus merged citation sentences at 0.5 (`python -m experiments.extra_views 5`) | 0.4814 |
 | 6: 2 plus word view at 0.5 | 0.4826 |
+| 7: 6 plus merged citation sentences at 1.0, votes at 6 from 10 neighbours (`python -m experiments.extra_views 7`) | 0.4790 |
 | 8: 2 plus Arch 2 IA3 dense at 0.25 (`W_WORDS = 0`) | 0.4719 |
 | 9: 2 plus Arch 4 QLoRA dense at 0.25 (`W_WORDS = 0`) | 0.4725 |
 | 10: 2 plus word view at 0.75 (`W_WORDS = 0.75`) | 0.4832 |
 | 11: 2 plus word view at 1.0 (`W_WORDS = 1.0`) | 0.4820 |
+| 12: 6 plus word 2-3 gram view at 0.5 (`python -m experiments.extra_views 12`) | 0.4814 |
 | 13: 6 plus Arch 4 QLoRA dense at 0.25 (defaults, my final system) | 0.4802 |
 | 14: 10 with votes at 6 (`W_WORDS = 0.75`, `W_VOTES = 6.0`) | 0.4808 |
+
+The scripts in `experiments/` are run from this folder and write `submissions/p7_sub<n>_dev<score>.zip`. Merged citation sentences are all sentences within 1 sentence of a hidden citation joined into one query.

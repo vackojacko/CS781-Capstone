@@ -41,6 +41,7 @@ All models are written by hand in PyTorch, starting from my Assignment 3 code. O
 | `pretrain_arch4.py` | trains Arch 4, checks it on held out prompts, writes test outputs |
 | `generate_mbr.py` | samples 16 outputs per prompt with Arch 2 and keeps the MBR choice |
 | `ablations/` | small runs that test parts of Arch 2 and Arch 4 (see its own README) |
+| `experiments/` | code for my other submissions, listed under Other submissions below |
 
 ## How to run
 
@@ -74,3 +75,30 @@ The training scripts continue from their last checkpoint if they are run again. 
 | Arch 3, plain sampling | `outputs/arch3/` | 0.8275 |
 | Arch 4, plain sampling | `outputs/arch4/` | 0.8365 |
 | Arch 2 + MBR over 16 samples (leaderboard) | `outputs/mbr16/` | 0.8402 |
+
+## Other submissions
+
+These are my other Phase 1 Codabench submissions, all made with my own models from the test prompts. Run the commands from this folder.
+
+| Submission | Codabench | How to reproduce |
+|---|---|---|
+| Arch 1, a second sampling run with the same settings | 0.8291 | `python -m experiments.resample` |
+| Arch 2 trained further on 329M new tokens, plain sampling | 0.8351 | `python -m experiments.continue_arch2` |
+| Arch 2, one T35 sample | 0.8344 | `generate_mbr.py` with `N_SAMPLES = 1` |
+| Arch 2, one T35 sample with another seed | 0.8354 | `python -m experiments.mbr_pool`, folder `single_t35_b` |
+| Arch 2, MBR over 4 T35 samples | 0.8378 | `generate_mbr.py` with `N_SAMPLES = 4` |
+| Arch 2, MBR over T35 samples 5 to 8 | 0.8369 | `python -m experiments.mbr_pool`, folder `mbr4b_t35` |
+| Arch 2, MBR over 8 T35 samples (first MBR run) | 0.8388 | `python -m experiments.mbr8` |
+| Arch 2, MBR over 8 T35 samples | 0.8390 | `generate_mbr.py` with `N_SAMPLES = 8` |
+| Arch 2, MBR over T35 samples 9 to 16 | 0.8387 | `python -m experiments.mbr_pool`, folder `mbr8b_t35` |
+| Arch 2, MBR over 12 T35 samples | 0.8396 | `generate_mbr.py` with `N_SAMPLES = 12` |
+| Arch 2, MBR over T35 samples 5 to 16 | 0.8395 | `python -m experiments.mbr_pool`, folder `mbr12b_t35` |
+| Arch 2, MBR over 1 sample of each setting | 0.8368 | `python -m experiments.mbr_pool`, folder `mix4` |
+| Arch 2, MBR over 2 samples of each setting | 0.8383 | `python -m experiments.mbr_pool`, folder `mix8` |
+| Arch 2, MBR over 3 samples of each setting | 0.8387 | `python -m experiments.mbr_pool`, folder `mix12` |
+| Arch 2, MBR over 4 samples of each setting | 0.8388 | `python -m experiments.mbr_pool`, folder `mix16` |
+| Arch 2, MBR over 8 T35 samples and 4 of each other setting | 0.8390 | `python -m experiments.mbr_pool`, folder `mix20` |
+| Arch 2, MBR over all 28 samples | 0.8400 | `python -m experiments.mbr_pool`, folder `all28` |
+| Arch 3 and Arch 4, the same files sent a second time | 0.8275, 0.8365 | `pretrain_arch3.py`, `pretrain_arch4.py` |
+
+When changing `N_SAMPLES` in `generate_mbr.py`, I also change `OUTPUT_DIR` so the 16 sample run is kept. `experiments.mbr_pool` samples 28 continuations per prompt with Arch 2: 16 with T35, 4 with T36 (temperature 0.3, top p 0.85, top k 50, repetition penalty 1.2), 4 with the plain Arch 2 setting, and 4 with T34 (temperature 0.6, top p 0.95, top k 20, repetition penalty 1.1). It writes one zip per row to `outputs/pool/<folder>/`. Its T35 samples use the same seeds as `generate_mbr.py`. `experiments.continue_arch2` needs `outputs/arch2/model.pt` and `outputs/arch2/checkpoint.pt` from `pretrain.py`.

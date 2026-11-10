@@ -14,7 +14,7 @@ This folder has the code for my best models in all seven capstone phases. I trai
 | 6 | Summarization | BERTScore F1 | 0.8527 | 14 | `phase6` |
 | 7 | Prior case retrieval | micro-F1@7 | 0.4802 | 14 | `phase7` |
 
-Each phase folder has its own README with the task, my final system, the models I tried, the files, how to run them, and the Codabench submissions they reproduce.
+Each phase folder has its own README with the task, my final system, the models I tried, the files, how to run them, and the Codabench submissions they reproduce. Each phase folder also has an `experiments/` folder with the code for my other Codabench submissions, listed under "Other submissions" at the end of its README.
 
 ## Phase 1 models
 

@@ -42,6 +42,7 @@ I wrote the LoRA and LoRMA+ layers myself (rank 16). The distilled Arch 2 learns
 | `train.py` | fine tuning, cross validation, the test predictions and the settings of every run |
 | `distill.py` | Arch 2 distilled from Arch 4 |
 | `adapt.py` | extra training of Arch 4 and the bidirectional version |
+| `experiments/` | code for my other submissions, listed under Other submissions below |
 
 ## How to run
 
@@ -87,3 +88,18 @@ Each `train.py` run writes its test log probabilities, the final model and a sub
 | Bidirectional Arch 4, LoRA, seed 1 (leaderboard) | `arch4_mntp_lora_h128_s1_bidir` | 0.6503 |
 
 The four required submissions are Arch 1 LoRMA+ (0.3351), Arch 2 distilled (0.5425), Arch 3 full fine tuning (0.3640) and bidirectional Arch 4 LoRA (0.6503).
+
+## Other submissions
+
+These are the other single model runs I submitted to Codabench. Run the commands from this folder.
+
+| Submission | Codabench | How to reproduce |
+|---|---|---|
+| Arch 2, full fine tuning, attention unmasked (no adaptation) | 0.5253 | `python -m experiments.extra_runs arch2_full_h128_bidir` |
+| Arch 4, LoRA, causal | 0.6121 | `python -m experiments.extra_runs arch4_lora_h128` |
+| Arch 1, LoRMA+ (required submission, same file as `arch1_lorma_h128`) | 0.3351 | `python train.py arch1_lorma_h128` |
+| Arch 2, distilled from Arch 4 (required submission, same file as `arch2_full_h128_kd`) | 0.5425 | `python distill.py` |
+| Arch 3 encoder, full fine tuning (required submission, same file as `arch3_full_h128`) | 0.3640 | `python train.py arch3_full_h128` |
+| Bidirectional Arch 4, LoRA, seed 1 (required submission, same file as `arch4_mntp_lora_h128_s1_bidir`) | 0.6503 | `python train.py arch4_mntp_lora_h128_s1_bidir` |
+
+`experiments/extra_runs.py` only adds settings; the training, cross validation and submission writing all come from `train.py`, and each run writes to `runs/<run name>/`. `arch4_lora_h128` starts from the original Phase 1 Arch 4 in `models/arch4`.
