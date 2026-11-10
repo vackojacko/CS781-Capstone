@@ -99,7 +99,7 @@ The four required submissions are Arch 1 LoRMA+ (0.3351), Arch 2 distilled (0.54
 
 ## Other submissions
 
-These are the other single model runs I submitted to Codabench. Run the commands from this folder.
+These are my other Codabench submissions: single model runs and ensembles of my runs. Run the commands from this folder.
 
 | Submission | Codabench | How to reproduce |
 |---|---|---|
@@ -109,5 +109,12 @@ These are the other single model runs I submitted to Codabench. Run the commands
 | Arch 2, distilled from Arch 4 (required submission, same file as `arch2_full_h128_kd`) | 0.5425 | `python distill.py` |
 | Arch 3 encoder, full fine tuning (required submission, same file as `arch3_full_h128`) | 0.3640 | `python train.py arch3_full_h128` |
 | Bidirectional Arch 4, LoRA, seed 1 (required submission, same file as `arch4_mntp_lora_h128_s1_bidir`) | 0.6503 | `python train.py arch4_mntp_lora_h128_s1_bidir` |
+| Ensemble: Arch 4 (weight 2) and Arch 2 with a 256 token header, seed 1 (weight 1); spreading in the document | 0.6142 | `python -m experiments.ensembles ens_a4_a2_a2h256` |
+| Same ensemble, plus boundary repair | 0.6211 | `python -m experiments.ensembles ens_a4x2_a2h256_repair` |
+| Same ensemble, plus per label biases | 0.6281 | `python -m experiments.ensembles ens_bias` |
+| Same, plus case insensitive spreading of APP names | 0.6293 | `python -m experiments.ensembles ens_bias_ciapp` |
+| Ensemble of Arch 4 (weight 2), Arch 4 seed 1 and Arch 2 h256, with its own per label biases | 0.6282 | `python -m experiments.ensembles ens3_bias` |
 
 `experiments/extra_runs.py` only adds settings; the training, cross validation and submission writing all come from `train.py`, and each run writes to `runs/<run name>/`. `arch4_lora_h128` starts from the original Phase 1 Arch 4 in `models/arch4`.
+
+`experiments/ensembles.py` reads `runs/<run name>/test_logprobs.npz` of each member, averages the probabilities with the weights in its `RECIPES` table, and then runs Viterbi, spreading in the document and boundary repair; it writes `submissions/submission_<name>.zip`. The two members I never submitted alone are trained with `python -m experiments.members arch4_full_h128_s1` and `python -m experiments.members arch2_full_h256_s1`. The per label biases are small numbers added to a label's tag scores before Viterbi, chosen on cross validation.
